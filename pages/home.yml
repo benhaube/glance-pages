@@ -5,31 +5,31 @@
   # hide-desktop-navigation: true
   head-widgets:
 
-    - $include: widgets/markets.yml
+    - $include: /app/config/widgets/markets.yml
 
   columns:
 
     - size: small
       widgets:
 
-        - $include: widgets/random-fact.yml
-        - $include: widgets/bookmarks.yml
+        - $include: /app/config/widgets/random-fact.yml
+        - $include: /app/config/widgets/bookmarks.yml
 
     - size: full
       widgets:
 
-        - $include: widgets/search.yml
-        - $include: widgets/hacker-news-lobsters-split.yml
-        - $include: widgets/rss-home.yml
-        - $include: widgets/youtube-home.yml
-        - $include: widges/reddit-home.yml
+        - $include: /app/config/widgets/search.yml
+        - $include: /app/config/widgets/hacker-news-lobsters-split.yml
+        - $include: /app/config/widgets/rss-home.yml
+        - $include: /app/config/widgets/youtube-home.yml
+        - $include: /app/config/widgets/reddit-home.yml
 
     - size: small
       widgets:
 
-        - $include: widgets/clock.yml
-        - $include: widgets/weather.yml
-        - $include: widgets/weather-aqi.yml 
-        - $include: widgets/weather-forecast.yml
-        - $include: widgets/calendar.yml
-        - $include: widgets/releases.yml
+        - $include: /app/config/widgets/clock.yml
+        - $include: /app/config/widgets/weather.yml
+        - $include: /app/config/widgets/weather-aqi.yml 
+        - $include: /app/config/widgets/weather-forecast.yml
+        - $include: /app/config/widgets/calendar.yml
+        - $include: /app/config/widgets/releases.yml

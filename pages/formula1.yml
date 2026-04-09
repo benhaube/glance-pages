@@ -8,9 +8,9 @@
     - size: small
       widgets:
 
-        - $include: widgets/search.yml
-        - $include: widgets/f1-last-race-results.yml
-        - $include: widgets/rss-f1.yml
+        - $include: /app/config/widgets/search.yml
+        - $include: /app/config/widgets/f1-last-race-results.yml
+        - $include: /app/config/widgets/rss-f1.yml
 
     - size: full
       widgets:
@@ -18,21 +18,21 @@
         - type: split-column
           widgets:
 
-            - $include: widgets/f1-next-race.yml
+            - $include: /app/config/widgets/f1-next-race.yml
             
             - type: group
               widgets:
 
-                - $include: widgets/f1-driver-standings.yml
-                - $include: widgets/f1-constructor-standings.yml
+                - $include: /app/config/widgets/f1-driver-standings.yml
+                - $include: /app/config/widgets/f1-constructor-standings.yml
 
-        - $include: widgets/reddit-f1.yml
+        - $include: /app/config/widgets/reddit-f1.yml
 
     - size: small
       widgets:
 
-        - $include: widgets/clock.yml
-        - $include: widgets/weather.yml
-        - $include: widgets/weather-aqi.yml
-        - $include: widgets/weather-forecast.yml
-        - $include: widgets/calendar.yml
+        - $include: /app/config/widgets/clock.yml
+        - $include: /app/config/widgets/weather.yml
+        - $include: /app/config/widgets/weather-aqi.yml
+        - $include: /app/config/widgets/weather-forecast.yml
+        - $include: /app/config/widgets/calendar.yml

@@ -8,29 +8,29 @@
     - size: small
       widgets:
 
-        - $include: widgets/beszel.yml
-        - $include: widgets/ha-wan.yml
-        - $include: widgets/ha-bandwidth.yml
-        - $include: widgets/releases.yml
+        - $include: /app/config/widgets/beszel.yml
+        - $include: /app/config/widgets/ha-wan.yml
+        - $include: /app/config/widgets/ha-bandwidth.yml
+        - $include: /app/config/widgets/releases.yml
 
     - size: full
       widgets:
 
-        - $include: widgets/search.yml
-        - $include: widgets/network-services.yml
-        - $include: widgets/docker-containers.yml
+        - $include: /app/config/widgets/search.yml
+        - $include: /app/config/widgets/network-services.yml
+        - $include: /app/config/widgets/docker-containers.yml
 
         - type: split-column
           widgets:
 
-          - $include: widgets/technitium.yml
-          - $include: widgets/immich-stats.yml
+          - $include: /app/config/widgets/technitium.yml
+          - $include: /app/config/widgets/immich-stats.yml
 
     - size: small
       widgets:
 
-        - $include: widgets/clock.yml
-        - $include: widgets/weather.yml
-        - $include: widgets/weather-aqi.yml
-        - $include: widgets/weather-forecast.yml
-        - $include: widgets/calendar.yml
+        - $include: /app/config/widgets/clock.yml
+        - $include: /app/config/widgets/weather.yml
+        - $include: /app/config/widgets/weather-aqi.yml
+        - $include: /app/config/widgets/weather-forecast.yml
+        - $include: /app/config/widgets/calendar.yml
