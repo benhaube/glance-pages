@@ -1,0 +1,38 @@
+- type: custom-api
+  title: WAN
+  cache: 10m
+  url: ${HASS_URL}/api/states
+  headers:
+    Authorization: "Bearer ${HASS_API_KEY}"
+    Content-Type: "application/json"
+  template: |
+    {{ if eq .Response.StatusCode 200 }}
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+        {{ range .JSON.Array "" }}
+          {{ $id := .String "entity_id" }}
+          {{ $state := .String "state" }}
+          {{ if and (or
+                        (eq $id "sensor.rt_be92u_faf0_wan_status")
+                        (eq $id "sensor.rt_be92u_faf0_external_ip")
+                        (eq $id "sensor.router_uptime_rounded")
+                        (eq $id "sensor.connected_devices")
+                    )
+                    (ne $state "unavailable")
+                    (ne $state "unknown")
+          }}
+            <div class="background-faint radius-8" style="padding: 6px 10px; text-align: center;">
+              <div class="color-highlight size-h3" style="line-height: 1.2;">
+                {{ $state }}{{ .String "attributes.unit_of_measurement" }}
+              </div>
+              <div class="size-h6 color-subdue" style="line-height: 1.2;">
+                {{ .String "attributes.friendly_name" }}
+              </div>
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ else }}
+      <div style="text-align: center;" class="color-negative size-h4">
+        Error: {{ .Response.StatusCode }} – {{ .Response.Status }}
+      </div>
+    {{ end }}

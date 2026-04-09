@@ -1,0 +1,9 @@
+- type: weather
+  title: Weather
+  location: Reisterstown, Maryland, United States
+  units: imperial # alternatively "metric"
+  hour-format: 12h # alternatively "24h"
+  # Optionally hide the location from being displayed in the widget
+  hide-location: false
+  # Optionally show the name of the state or municipality
+  show-area-name: true

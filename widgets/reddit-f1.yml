@@ -1,0 +1,41 @@
+- type: group
+  widgets:
+    - type: reddit
+      style: vertical-list
+      subreddit: Formula1
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
+
+    - type: reddit
+      style: vertical-list
+      subreddit: F1News
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
+
+    - type: reddit
+      style: vertical-list
+      subreddit: F1TV
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
+
+    - type: reddit
+      style: vertical-list
+      subreddit: F1Technical
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
+
+    - type: reddit
+      style: vertical-list
+      subreddit: F1Discussions
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true

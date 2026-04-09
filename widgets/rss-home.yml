@@ -1,0 +1,22 @@
+- type: rss
+  title: News Feed
+  style: detailed-list
+  limit: 10
+  collapse-after: 3
+  # preserve-order: true
+  cache: 12h
+  feeds:
+    - url: https://selfh.st/rss/
+      title: selfh.st
+    - url: https://androidfaithful.com/rss
+      title: Android Faithful
+    - url: https://9to5google.com/web-stories/feed/
+      title: 9to5Google
+    - url: https://www.androidauthority.com/feed
+      title: Android Authority
+    - url: https://www.wired.com/feed/rss
+      title: Wired
+    - url: https://fortune.com/feed/fortune-feeds/?id=3230629
+      title: Fortune
+    - url: https://www.theguardian.com/us/rss
+      title: The Guardian

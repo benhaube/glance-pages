@@ -1,0 +1,68 @@
+- type: monitor
+  cache: 1m
+  title: Local Network Services
+  sites:
+    - title: ASUS RT-BE92U
+      url: https://asusrouter.internal:8443
+      icon: di:asus-router
+      allow-insecure: true
+    - title: F1 Replay Timing
+      url: http://storage-server.internal:3000
+      icon: /assets/icons/f1-replay-timing.svg
+    - title: Files (storage-server)
+      url: http://storage-server.internal/modules/icewhale_files/
+      icon: assets/icons/files.svg
+    # - title: Glances (pi-hole)
+    # url: http://pi-hole.internal:61208/
+    # icon: sh:glances
+    - title: Glances (storage-server)
+      url: http://storage-server.internal:61208/
+      icon: sh:glances
+    - title: Homebox
+      url: http://storage-server.internal:3100/home
+      icon: sh:homebox
+    - title: Immich
+      url: http://storage-server.internal:2283
+      icon: sh:immich
+    - title: Kacey (3D Printer)
+      url: http://k1c-a71e.internal
+      icon: /assets/icons/creality-v2.svg
+    # - title: Mermaid Live Editor
+    # url: http://storage-server.internal:8000
+    # icon: https://avatars.githubusercontent.com/u/57169982?s=48&v=4
+    - title: Network Documentation
+      url: http://storage-server.internal:8080
+      icon: /assets/icons/file-document-multiple-color.svg
+    - title: Openprinting CUPS Server
+      url: https://192.168.50.2:631/
+      allow-insecure: true
+      icon: sh:openprinting-cups
+    - title: OpenSpeedTest
+      url: http://storage-server.internal:3004/
+      icon: sh:openspeedtest
+    # - title: Pi-Hole DNS
+    # url: https://pi-hole.internal/admin
+    # allow-insecure: true
+    # icon: sh:pi-hole
+    - title: Portracker
+      url: http://storage-server.internal:4999
+      icon: sh:portracker-light
+    - title: Spoolman
+      url: http://storage-server.internal:7912
+      icon: sh:spoolman
+    - title: Technitium DNS
+      url: http://debian-vm.internal:5380
+      icon: sh:technitium
+    - title: WireGuard Easy
+      url: http://storage-server.internal:51821/
+      icon: /assets/icons/wireguard-rounded-square.svg
+    - title: yt-dlp Web UI
+      url: http://storage-server.internal:3033/
+      icon: sh:youtube-dl
+    - title: ZimaOS NAS
+      url: http://storage-server.internal
+      allow-insecure: true
+      icon: di:zima-os.png
+    - title: ZVM (storage-server)
+      url: http://storage-server.internal/modules/zimaos_zvm/
+      icon: /assets/icons/zvm.svg

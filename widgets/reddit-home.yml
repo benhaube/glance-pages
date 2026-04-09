@@ -1,0 +1,57 @@
+- type: group
+  widgets:
+    - type: reddit
+      style: vertical-list
+      subreddit: android
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
+
+    - type: reddit
+      style: vertical-list
+      subreddit: fedora
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
+
+    - type: reddit
+      style: vertical-list
+      subreddit: firefox
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
+
+    - type: reddit
+      style: vertical-list
+      subreddit: kde
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
+
+    - type: reddit
+      style: vertical-list
+      subreddit: linux
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
+
+    - type: reddit
+      style: vertical-list
+      subreddit: pihole
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
+
+    - type: reddit
+      style: vertical-list
+      subreddit: whitepeopletwitter
+      show-flairs: true
+      limit: 10
+      collapse-after: 5
+      show-thumbnails: true
