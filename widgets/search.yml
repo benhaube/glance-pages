@@ -1,0 +1,18 @@
+- type: search
+  search-engine: duckduckgo
+  bangs:
+    - title: YouTube
+      shortcut: "!yt"
+      url: https://www.youtube.com/results?search_query={QUERY}
+    - title: Ecosia
+      shortcut: "!e"
+      url: https://www.ecosia.org/search?method=index&q={QUERY}
+    - title: Kagi
+      shortcut: "!k"
+      url: https://kagi.com/search?q={QUERY}
+    - title: Google
+      shortcut: "!g"
+      url: https://www.google.com/search?q={QUERY}
+    - title: Wikipedia
+      shortcut: "!wiki"
+      url: https://en.wikipedia.org/wiki/Special:Search/{QUERY}

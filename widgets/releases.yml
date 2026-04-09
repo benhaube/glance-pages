@@ -1,0 +1,43 @@
+- type: releases
+  cache: 1d
+  show-source-icon: true
+  limit: 50
+  collapse-after: 5
+  # Without authentication the Github API allows for up to 60 requests per hour. You can create a
+  # read-only token from your Github account settings and use it here to increase the limit.
+  token: ${GITHUB_TOKEN}
+  gitlab-token: ${GITLAB_TOKEN}
+  repositories:
+    - dockerhub:glanceapp/glance
+    - bitfireAT/davx5-ose
+    - dockerhub:lovelaze/nebula-sync
+    - syncthing/syncthing
+    - open-webui/open-webui
+    - Martchus/syncthingtray
+    - bitwarden/clients
+    - SoftFever/OrcaSlicer
+    - ente-io/ente
+    - localsend/localsend
+    - SkyAllinott/glance-F1
+    - dockerhub:louislam/uptime-kuma:2
+    - yt-dlp/yt-dlp
+    - charmbracelet/glow
+    - L4ki/Breeze-Chameleon-Icons
+    - fastfetch-cli/fastfetch
+    # - pi-hole/PADD
+    - CrealityOfficial/CrealityPrint
+    - luisbocanegra/kde-material-you-colors
+    - anudeepND/whitelist
+    - korkje/mow
+    - TheAssassin/AppImageLauncher
+    - starship/starship
+    # - pi-hole/pi-hole
+    # - pi-hole/web
+    # - pi-hole/FTL
+    - gitlab:CalcProgrammer1/OpenRGB
+    - dockerhub:homeassistant/home-assistant:stable
+    - dockerhub:corentinth/it-tools
+    - dockerhub:portainer/portainer-ce
+    - dockerhub:henrygd/beszel:latest
+    - dockerhub:henrygd/beszel-agent:latest
+    - dockerhub:skyallinott/f1_api:latest

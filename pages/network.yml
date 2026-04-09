@@ -236,13 +236,6 @@
               {{ end }}
             {{ end }}
 
-        # - type: dns-stats
-          # title: DNS (backup) @ pi-hole
-          # service: pihole-v6
-          # url: https://192.168.50.3
-          # password: 1g9+XpHVhq8pIpQjy+FEa/GiC62+BUEu6+ePEUhlTS8=
-          # allow-insecure: true
-
         - type: custom-api
           title: WAN
           cache: 10m
@@ -368,25 +361,8 @@
     - size: full
       widgets:
 
-        - type: search
-          search-engine: duckduckgo
-          bangs:
-            - title: YouTube
-              shortcut: "!yt"
-              url: https://www.youtube.com/results?search_query={QUERY}
-            - title: Ecosia
-              shortcut: "!e"
-              url: https://www.ecosia.org/search?method=index&q={QUERY}
-            - title: Kagi
-              shortcut: "!k"
-              url: https://kagi.com/search?q={QUERY}
-            - title: Google
-              shortcut: "!g"
-              url: https://www.google.com/search?q={QUERY}
-            - title: Wikipedia
-              shortcut: "!wiki"
-              url: https://en.wikipedia.org/wiki/Special:Search/{QUERY}
-
+        - $include: widgets/search.yml
+        
         - type: monitor
           cache: 1m
           title: Local Network Services

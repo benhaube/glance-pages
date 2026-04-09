@@ -5,19 +5,7 @@
   # hide-desktop-navigation: true
   head-widgets:
 
-    - type: markets
-      hide-header: true
-      markets:
-        - symbol: SPY
-          name: S&P 500
-        - symbol: BTC-USD
-          name: Bitcoin
-        - symbol: NVDA
-          name: NVIDIA
-        - symbol: AAPL
-          name: Apple
-        - symbol: MSFT
-          name: Microsoft
+    - $include: widgets/markets.yml
 
   columns:
 
@@ -206,24 +194,7 @@
     - size: full
       widgets:
 
-        - type: search
-          search-engine: duckduckgo
-          bangs:
-            - title: YouTube
-              shortcut: "!yt"
-              url: https://www.youtube.com/results?search_query={QUERY}
-            - title: Ecosia
-              shortcut: "!e"
-              url: https://www.ecosia.org/search?method=index&q={QUERY}
-            - title: Kagi
-              shortcut: "!k"
-              url: https://kagi.com/search?q={QUERY}
-            - title: Google
-              shortcut: "!g"
-              url: https://www.google.com/search?q={QUERY}
-            - title: Wikipedia
-              shortcut: "!wiki"
-              url: https://en.wikipedia.org/wiki/Special:Search/{QUERY}
+        - $include: widgets/search.yml
 
         - type: split-column
           widgets:
