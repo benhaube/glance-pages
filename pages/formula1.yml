@@ -17,11 +17,15 @@
 
         - type: split-column
           widgets:
+
             - $include: widgets/f1-next-race.yml
+            
             - type: group
               widgets:
+
                 - $include: widgets/f1-driver-standings.yml
                 - $include: widgets/f1-constructor-standings.yml
+
         - $include: widgets/reddit-f1.yml
 
     - size: small
