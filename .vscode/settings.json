@@ -1,0 +1,7 @@
+{
+    "yaml.schemas": {
+    "https://raw.githubusercontent.com/not-first/glance-schema/master/schema.json": ["glance.yml"],
+    "https://raw.githubusercontent.com/not-first/glance-schema/master/schema.json#/definitions/widget": ["widgets/*.yml"],
+    "https://raw.githubusercontent.com/not-first/glance-schema/master/schema.json#/definitions/page": ["pages/*.yml"]
+    }
+}

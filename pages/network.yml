@@ -1,0 +1,1024 @@
+- name: Network
+  # Show a title header on mobile web browsers
+  show-mobile-header: true
+  # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
+  # hide-desktop-navigation: true
+  columns:
+
+    - size: small
+      widgets:
+
+        - type: custom-api
+          title: Server Stats
+          cache: 5m
+          options:
+            base-url: ${BESZEL_URL}
+            api-key: ${BESZEL_TOKEN}
+          template: |
+            {{/* Required config options */}}
+            {{ $baseURL := .Options.StringOr "base-url" "" }}
+            {{ $apiKey := .Options.StringOr "api-key" "" }}
+
+            {{/* Error message template */}}
+            {{ define "errorMsg" }}
+              <div class="widget-error-header">
+                <div class="color-negative size-h3">ERROR</div>
+                <svg class="widget-error-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"></path>
+                </svg>
+              </div>
+              <p class="break-all">{{ . }}</p>
+            {{ end }}
+
+            {{ define "formatGigabytes" }}
+              {{ $value := . }}
+              {{ $label := "GB" }}
+              {{- if lt $value 1.0 }}
+                {{ $value = mul $value 1000.0 }}
+                {{ $label = "MB" }}
+              {{- else if lt $value 1000.0 }}
+              {{ else }}
+                {{ $value = div $value 1000.0 }}
+                {{ $label = "TB" }}
+              {{ end }}
+              {{ printf "%.1f" $value }} <span class="color-base size-h5">{{ $label }}</span>
+            {{ end }}
+
+            {{/* Check required fields */}}
+            {{ if or (eq $baseURL "") (eq $apiKey "") }}
+              {{ template "errorMsg" "Some required options are not set." }}
+            {{ else }}
+
+              {{ $token := concat "Bearer " $apiKey }}
+
+              {{ $systemsResponse := newRequest (print $baseURL "/api/collections/systems/records")
+                  | withHeader "Authorization" $token
+                  | getResponse }}
+              {{ $systems := $systemsResponse.JSON.Array "items" }}
+
+
+              {{ range $n, $system := $systems }}
+                {{ $status := $system.String "status" }}
+
+                {{ $systemStatsRequest := newRequest (print $baseURL "/api/collections/system_stats/records")
+                    | withHeader "Authorization" $token
+                    | withParameter "sort" "-created"
+                    | withParameter "page" "1"
+                    | withParameter "perPage" "1"
+                    | withParameter "filter" (print "type='1m'&&system='" ($system.String "id") "'")
+                    | getResponse }}
+                {{ $systemStats := index ($systemStatsRequest.JSON.Array "items") 0 }}
+
+                {{ $hostname := $system.String "name" }}
+                {{ $uptimeSec := $system.Float "info.u" }}
+
+                {{ $systemTemp := $system.Float "info.dt"}}
+
+                {{ $cpuLoad := $system.Float "info.cpu" }}
+                {{ $cpuLoad1m := $system.Float "info.l1" }}
+                {{ $cpuLoad15m := $system.Float "info.l15" }}
+
+                {{ $memoryUsedPercent := $system.Float "info.mp" }}
+                {{ $memoryTotalGb := $systemStats.Float "stats.m" }}
+                {{ $memoryUsedGb := $systemStats.Float "stats.mu" }}
+
+                {{ $swapTotalGb := $systemStats.Float "stats.s" }}
+                {{ $swapUsedGb := $systemStats.Float "stats.su" }}
+                {{ $swapUsedPercent := mul (div $swapUsedGb $swapTotalGb) 100.0 }}
+
+                {{ $rootUsedPercent := $system.Float "info.dp" }}
+                {{ $rootTotalGb := $systemStats.Float "stats.d" }}
+                {{ $rootUsedGb := $systemStats.Float "stats.du" }}
+
+                <div class="server">
+                  <div class="server-info">
+                    <div class="server-details">
+                      <div class="server-name color-highlight size-h3">{{ $hostname }}</div>
+                      <div>
+                        {{ if eq $status "up" }}
+                          <span>{{ printf "%.1f" (mul $uptimeSec 0.000011574) }}d</span> uptime
+                        {{ else }}
+                          unreachable
+                        {{ end }}
+                      </div>
+                    </div>
+                    <div class="shrink-0"{{ if eq $status "up" }} data-popover-type="html" data-popover-margin="0.2rem" data-popover-max-width="400px"{{ end }}>
+                      {{- if eq $status "up" }}
+                      <div data-popover-html>
+                        <div class="flex">
+                          <div class="size-h5 text-compact">Kernel</div>
+                          <div class="value-separator"></div>
+                          <div class="color-highlight">{{ $system.String "info.k" }}</div>
+                        </div>
+                        <div class="flex">
+                          <div class="size-h5 text-compact">CPU</div>
+                          <div class="value-separator"></div>
+                          <div class="color-highlight">{{ $system.String "info.m" }}</div>
+                        </div>
+                      </div>
+                      {{- end }}
+                      <svg class="server-icon" stroke="var(--color-{{ if eq $status "up" }}positive{{ else }}negative{{ end }})" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 17.25v-.228a4.5 4.5 0 0 0-.12-1.03l-2.268-9.64a3.375 3.375 0 0 0-3.285-2.602H7.923a3.375 3.375 0 0 0-3.285 2.602l-2.268 9.64a4.5 4.5 0 0 0-.12 1.03v.228m19.5 0a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3m19.5 0a3 3 0 0 0-3-3H5.25a3 3 0 0 0-3 3m16.5 0h.008v.008h-.008v-.008Zm-3 0h.008v.008h-.008v-.008Z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="server-stats">
+                   <div class="flex-1">
+                      <div class="flex items-end size-h5">
+                        <div>CPU</div>
+                        {{- if ge $systemTemp 80.0 }}
+                        <svg class="server-spicy-cpu-icon" fill="var(--color-negative)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" >
+                          <path fill-rule="evenodd" d="M8.074.945A4.993 4.993 0 0 0 6 5v.032c.004.6.114 1.176.311 1.709.16.428-.204.91-.61.7a5.023 5.023 0 0 1-1.868-1.677c-.202-.304-.648-.363-.848-.058a6 6 0 1 0 8.017-1.901l-.004-.007a4.98 4.98 0 0 1-2.18-2.574c-.116-.31-.477-.472-.744-.28Zm.78 6.178a3.001 3.001 0 1 1-3.473 4.341c-.205-.365.215-.694.62-.59a4.008 4.008 0 0 0 1.873.03c.288-.065.413-.386.321-.666A3.997 3.997 0 0 1 8 8.999c0-.585.126-1.14.351-1.641a.42.42 0 0 1 .503-.235Z" clip-rule="evenodd" />
+                        </svg>
+                        {{- end }}
+                        <div class="color-highlight margin-left-auto text-very-compact">{{ $cpuLoad }} <span class="color-base">%</span></div>
+                      </div>
+                      <div data-popover-type="html">
+                        <div data-popover-html>
+                          <div class="flex">
+                            <div class="size-h5">1M AVG</div>
+                            <div class="value-separator"></div>
+                            <div class="color-highlight text-very-compact">{{ printf "%.1f" $cpuLoad1m }} <span class="color-base size-h5">%</span></div>
+                          </div>
+                          <div class="flex margin-top-3">
+                            <div class="size-h5">15M AVG</div>
+                            <div class="value-separator"></div>
+                            <div class="color-highlight text-very-compact">{{ printf "%.1f" $cpuLoad15m }} <span class="color-base size-h5">%</span></div>
+                          </div>
+                         <div class="flex margin-top-3">
+                            <div class="size-h5">TEMP C</div>
+                            <div class="value-separator"></div>
+                            <div class="color-highlight text-very-compact">{{ printf "%.1f" $systemTemp }} <span class="color-base size-h5">°</span></div>
+                          </div>
+                       </div>
+
+                        <div class="progress-bar progress-bar-combined">
+                          <div class="progress-value{{ if ge $cpuLoad1m 85.0 }} progress-value-notice{{ end }}" style="--percent: {{ $cpuLoad1m }}"></div>
+                          <div class="progress-value{{ if ge $cpuLoad15m 85.0 }} progress-value-notice{{ end }}" style="--percent: {{ $cpuLoad15m }}"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex-1">
+                      <div class="flex justify-between items-end size-h5">
+                        <div>RAM</div>
+                        <div class="color-highlight text-very-compact">{{ $memoryUsedPercent }} <span class="color-base">%</span></div>
+                      </div>
+                      <div data-popover-type="html">
+                        <div data-popover-html>
+                          <div class="flex">
+                            <div class="size-h5">RAM</div>
+                            <div class="value-separator"></div>
+                            <div class="color-highlight text-very-compact">
+                              {{ template "formatGigabytes" $memoryUsedGb }} <span class="color-base size-h5">/</span> {{ template "formatGigabytes" $memoryTotalGb }}
+                            </div>
+                          </div>
+                          {{- if gt $swapTotalGb 0.0 }}
+                          <div class="flex margin-top-3">
+                            <div class="size-h5">SWAP</div>
+                            <div class="value-separator"></div>
+                            <div class="color-highlight text-very-compact">
+                              {{ template "formatGigabytes" $swapUsedGb }} <span class="color-base size-h5">/</span> {{ template "formatGigabytes" $swapTotalGb }}
+                            </div>
+                          </div>
+                          {{- end }}
+                        </div>
+                        <div class="progress-bar progress-bar-combined">
+                          <div class="progress-value{{ if ge $memoryUsedPercent 85.0 }} progress-value-notice{{ end }}" style="--percent: {{ $memoryUsedPercent }}"></div>
+                          {{- if gt $swapTotalGb 0.0 }}
+                          <div class="progress-value{{ if ge $swapUsedPercent 85.0 }} progress-value-notice{{ end }}" style="--percent: {{ $swapUsedPercent }}"></div>
+                          {{- end }}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex-1">
+                      <div class="flex justify-between items-end size-h5">
+                        <div>DISK</div>
+                        <div class="color-highlight text-very-compact">{{ $rootUsedPercent }} <span class="color-base">%</span></div>
+                      </div>
+                      <div data-popover-type="html">
+                        <div data-popover-html>
+                          <ul class="list list-gap-2">
+                            <li class="flex">
+                              <div class="size-h5">/</div>
+                              <div class="value-separator"></div>
+                              <div class="color-highlight text-very-compact">
+                                {{ template "formatGigabytes" $rootUsedGb }} <span class="color-base size-h5">/</span> {{ template "formatGigabytes" $rootTotalGb }}
+                              </div>
+                            </li>
+                            {{ range $key, $efs := ($systemStats.Get "stats.efs").Map }}
+                              <li class="flex">
+                                <div class="size-h5">{{ $key }}</div>
+                                <div class="value-separator"></div>
+                                <div class="color-highlight text-very-compact">
+                                  {{ template "formatGigabytes" (($efs.Get "du").Float) }} <span class="color-base size-h5">/</span> {{ template "formatGigabytes" (($efs.Get "d").Float) }}
+                                </div>
+                              </li>
+                            {{ end }}
+                          </ul>
+                        </div>
+                        <div class="progress-bar progress-bar-combined">
+                          <div class="progress-value{{ if ge $rootUsedPercent 85.0 }} progress-value-notice{{ end }}" style="--percent: {{ $rootUsedPercent }}"></div>
+                         {{ range $key, $efs := ($systemStats.Get "stats.efs").Map }}
+                            {{ $efsTotalGb := (($efs.Get "d").Float) }}
+                            {{ $efsUsedGb := (($efs.Get "du").Float) }}
+                            {{ $efsPercent := mul (div $efsUsedGb $efsTotalGb) 100 }}
+                            <div class="progress-value{{ if ge $efsPercent 85.0 }} progress-value-notice{{ end }}" style="--percent: {{ $efsPercent }}"></div>
+                          {{ end }}
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              {{ end }}
+            {{ end }}
+
+        # - type: dns-stats
+          # title: DNS (backup) @ pi-hole
+          # service: pihole-v6
+          # url: https://192.168.50.3
+          # password: 1g9+XpHVhq8pIpQjy+FEa/GiC62+BUEu6+ePEUhlTS8=
+          # allow-insecure: true
+
+        - type: custom-api
+          title: WAN
+          cache: 10m
+          url: ${HASS_URL}/api/states
+          headers:
+            Authorization: "Bearer ${HASS_API_KEY}"
+            Content-Type: "application/json"
+          template: |
+            {{ if eq .Response.StatusCode 200 }}
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+                {{ range .JSON.Array "" }}
+                  {{ $id := .String "entity_id" }}
+                  {{ $state := .String "state" }}
+                  {{ if and (or
+                                (eq $id "sensor.rt_be92u_faf0_wan_status")
+                                (eq $id "sensor.rt_be92u_faf0_external_ip")
+                                (eq $id "sensor.router_uptime_rounded")
+                                (eq $id "sensor.connected_devices")
+                            )
+                            (ne $state "unavailable")
+                            (ne $state "unknown")
+                  }}
+                    <div class="background-faint radius-8" style="padding: 6px 10px; text-align: center;">
+                      <div class="color-highlight size-h3" style="line-height: 1.2;">
+                        {{ $state }}{{ .String "attributes.unit_of_measurement" }}
+                      </div>
+                      <div class="size-h6 color-subdue" style="line-height: 1.2;">
+                        {{ .String "attributes.friendly_name" }}
+                      </div>
+                    </div>
+                  {{ end }}
+                {{ end }}
+              </div>
+            {{ else }}
+              <div style="text-align: center;" class="color-negative size-h4">
+                Error: {{ .Response.StatusCode }} – {{ .Response.Status }}
+              </div>
+            {{ end }}
+
+        - type: custom-api
+          title: Bandwidth
+          cache: 10m
+          url: ${HASS_URL}/api/states
+          headers:
+            Authorization: "Bearer ${HASS_API_KEY}"
+            Content-Type: "application/json"
+          template: |
+            {{ if eq .Response.StatusCode 200 }}
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+                {{ range .JSON.Array "" }}
+                  {{ $id := .String "entity_id" }}
+                  {{ $state := .String "state" }}
+                  {{ if and (or
+                                (eq $id "sensor.data_sent_3")
+                                (eq $id "sensor.upload_speed_2")
+                                (eq $id "sensor.download_speed_2")
+                                (eq $id "sensor.data_recieved_3")
+                            )
+                            (ne $state "unavailable")
+                            (ne $state "unknown")
+                  }}
+                    <div class="background-faint radius-8" style="padding: 6px 10px; text-align: center;">
+                      <div class="color-highlight size-h3" style="line-height: 1.2;">
+                        {{ $state }}{{ .String "attributes.unit_of_measurement" }}
+                      </div>
+                      <div class="size-h6 color-subdue" style="line-height: 1.2;">
+                        {{ .String "attributes.friendly_name" }}
+                      </div>
+                    </div>
+                  {{ end }}
+                {{ end }}
+              </div>
+            {{ else }}
+              <div style="text-align: center;" class="color-negative size-h4">
+                Error: {{ .Response.StatusCode }} – {{ .Response.Status }}
+              </div>
+            {{ end }}
+
+        - type: releases
+          cache: 1d
+          show-source-icon: true
+          limit: 50
+          collapse-after: 5
+          # Without authentication the Github API allows for up to 60 requests per hour. You can create a
+          # read-only token from your Github account settings and use it here to increase the limit.
+          token: ${GITHUB_TOKEN}
+          gitlab-token: ${GITLAB_TOKEN}
+          repositories:
+            - dockerhub:glanceapp/glance
+            - bitfireAT/davx5-ose
+            - dockerhub:lovelaze/nebula-sync
+            - syncthing/syncthing
+            - open-webui/open-webui
+            - Martchus/syncthingtray
+            - bitwarden/clients
+            - SoftFever/OrcaSlicer
+            - ente-io/ente
+            - localsend/localsend
+            - SkyAllinott/glance-F1
+            - dockerhub:louislam/uptime-kuma:2
+            - yt-dlp/yt-dlp
+            - charmbracelet/glow
+            - L4ki/Breeze-Chameleon-Icons
+            - fastfetch-cli/fastfetch
+            - pi-hole/PADD
+            - CrealityOfficial/CrealityPrint
+            - luisbocanegra/kde-material-you-colors
+            - anudeepND/whitelist
+            - korkje/mow
+            - TheAssassin/AppImageLauncher
+            - starship/starship
+            # - pi-hole/pi-hole
+            # - pi-hole/web
+            # - pi-hole/FTL
+            - gitlab:CalcProgrammer1/OpenRGB
+            - dockerhub:homeassistant/home-assistant:stable
+            - dockerhub:corentinth/it-tools
+            - dockerhub:portainer/portainer-ce
+            - dockerhub:henrygd/beszel:latest
+            - dockerhub:henrygd/beszel-agent:latest
+            - dockerhub:skyallinott/f1_api:latest
+
+    - size: full
+      widgets:
+
+        - type: search
+          search-engine: duckduckgo
+          bangs:
+            - title: YouTube
+              shortcut: "!yt"
+              url: https://www.youtube.com/results?search_query={QUERY}
+            - title: Ecosia
+              shortcut: "!e"
+              url: https://www.ecosia.org/search?method=index&q={QUERY}
+            - title: Kagi
+              shortcut: "!k"
+              url: https://kagi.com/search?q={QUERY}
+            - title: Google
+              shortcut: "!g"
+              url: https://www.google.com/search?q={QUERY}
+            - title: Wikipedia
+              shortcut: "!wiki"
+              url: https://en.wikipedia.org/wiki/Special:Search/{QUERY}
+
+        - type: monitor
+          cache: 1m
+          title: Local Network Services
+          sites:
+            - title: ASUS RT-BE92U
+              url: https://asusrouter.internal:8443
+              icon: di:asus-router
+              allow-insecure: true
+            - title: F1 Replay Timing
+              url: http://storage-server.internal:3000
+              icon: /assets/icons/f1-replay-timing.svg
+            - title: Files (storage-server)
+              url: http://storage-server.internal/modules/icewhale_files/
+              icon: assets/icons/files.svg
+            # - title: Glances (pi-hole)
+              # url: http://pi-hole.internal:61208/
+              # icon: sh:glances
+            - title: Glances (storage-server)
+              url: http://storage-server.internal:61208/
+              icon: sh:glances
+            - title: Homebox
+              url: http://storage-server.internal:3100/home
+              icon: sh:homebox
+            - title: Immich
+              url: http://storage-server.internal:2283
+              icon: sh:immich
+            - title: Kacey (3D Printer)
+              url: http://k1c-a71e.internal
+              icon: /assets/icons/creality-v2.svg
+            # - title: Mermaid Live Editor
+              # url: http://storage-server.internal:8000
+              # icon: https://avatars.githubusercontent.com/u/57169982?s=48&v=4
+            - title: Network Documentation
+              url: http://storage-server.internal:8080
+              icon: /assets/icons/file-document-multiple-color.svg
+            - title: Openprinting CUPS Server
+              url: https://192.168.50.2:631/
+              allow-insecure: true
+              icon: sh:openprinting-cups
+            - title: OpenSpeedTest
+              url: http://storage-server.internal:3004/
+              icon: sh:openspeedtest
+            # - title: Pi-Hole DNS
+              # url: https://pi-hole.internal/admin
+              # allow-insecure: true
+              # icon: sh:pi-hole
+            - title: Portracker
+              url: http://storage-server.internal:4999
+              icon: sh:portracker-light
+            - title: Spoolman
+              url: http://storage-server.internal:7912
+              icon: sh:spoolman
+            - title: Technitium DNS
+              url: http://debian-vm.internal:5380
+              icon: sh:technitium
+            - title: WireGuard Easy
+              url: http://storage-server.internal:51821/
+              icon: /assets/icons/wireguard-rounded-square.svg
+            - title: yt-dlp Web UI
+              url: http://storage-server.internal:3033/
+              icon: sh:youtube-dl
+            - title: ZimaOS NAS
+              url: http://storage-server.internal
+              allow-insecure: true
+              icon: di:zima-os.png
+            - title: ZVM (storage-server)
+              url: http://storage-server.internal/modules/zimaos_zvm/
+              icon: /assets/icons/zvm.svg
+
+        - type: docker-containers
+          title: Docker Containers (pi-server)
+          hide-by-default: false
+          containers:
+            beszel:
+              name: Beszel Hub
+              description: Lightweight server monitoring platform
+              url: http://pi-server.internal:8090/
+              id: beszel
+              icon: sh:beszel
+            beszel-agent:
+              name: Beszel Agent
+              description: Lightweight agent for the Beszel monitoring platform
+              parent: beszel
+            dockge-dockge-1:
+              name: Dockge
+              description: A fancy, easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager
+              url: http://pi-server.internal:5001
+              icon: sh:dockge
+            f1_api:
+              name: F1_API
+              description: An API for Formula 1 stats
+              parent: glance
+              icon: /assets/icons/f1.svg
+            glances-glances-1:
+              name: Glances
+              description: Glances an Eye on your system
+              url: http://pi-server.internal:61208
+              icon: sh:glances
+            homeassistant:
+              name: Home Assistant
+              description: Smarthome control panel
+              url: http://pi-server.internal:8123
+              icon: sh:home-assistant
+              # hide: false
+            it-tools:
+              name: IT-Tools
+              description: Handy tools for developers
+              url: http://pi-server.internal:8080
+              icon: di:it-tools-light
+              id: it-tools
+              # hide: false
+            nebula-sync:
+              name: Nebula-Sync
+              description: Synchronize Pi-hole configuration
+              icon: /assets/icons/pi-hole2.svg
+            portainer:
+              name: Portainer
+              id: portainer-ee
+              description: Container management platform
+              url: https://pi-server.internal:9443
+              icon: sh:portainer-pink
+            portainer_agent:
+              name: Portainer-Agent
+              parent: portainer-ee
+            portracker:
+              name: Portracker
+              icon: sh:portracker-light
+            uptime-kuma:
+              name: Uptime-Kuma
+              description: Network service monitoring tool
+              url: http://pi-server.internal:3001
+              icon: sh:uptime-kuma
+            ws-tcp-udp-bridge:
+              name: ws-tcp-udp-bridge
+              parent: it-tools
+
+        - type: split-column
+          widgets:
+
+          - type: custom-api
+            title: Technitium DNS Stats
+            cache: 1h
+            subrequests:
+              update-check:
+                url: http://${TECHNITIUM_IP_PORT}/api/user/checkForUpdate?token=${TECHNITIUM_TOKEN}
+            url: http://${TECHNITIUM_IP_PORT}/api/dashboard/stats/get?token=${TECHNITIUM_TOKEN}&type=${TECHNITIUM_STATS_TIMEFRAME}&utc=true
+            method: GET
+            template: |
+              <ul class="list list-gap-10 collapsible-container" data-collapse-after="3">
+              {{ $updateCheck := .Subrequest "update-check" }}
+                  <li>
+                  <strong class="color-highlight">Version:</strong>
+                  {{ $updateCheck.JSON.String "response.currentVersion" }}
+                  {{ if ($updateCheck.JSON.Bool "response.updateAvailable") }}
+                  <a href="https://github.com/TechnitiumSoftware/DnsServer/blob/master/CHANGELOG.md"><strong><span class="color-positive"> Update Available: {{ $updateCheck.response.updateVersion }}</span></strong></a>
+                  {{ end }}
+                  </li>
+                  <li>
+                  <strong class="color-highlight">Total Queries:</strong>
+                  {{ .JSON.String "response.stats.totalQueries" }}
+                  </li>
+                  <li>
+                  <strong class="color-highlight">Blocked Queries:</strong>
+                  {{ .JSON.String "response.stats.totalBlocked" }}
+                  </li>
+                  <li>
+                  <!-- Top Clients Table -->
+                  <h4 class="size-h5 color-highlight">Top Clients</h4>
+                  <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                      <thead>
+                      <tr style="border-bottom: 1px solid #ccc;">
+                          <th style="text-align: left; padding: 8px;">Name</th>
+                          <th style="text-align: left; padding: 8px;">Domain</th>
+                          <th style="text-align: left; padding: 8px;">Hits</th>
+                          <th style="text-align: left; padding: 8px;">Rate Limited</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {{ range $index, $client := .JSON.Array "response.topClients" }}
+                          <tr>
+                          <td style="padding: 8px;">{{ $client.String "name" }}</td>
+                          <td style="padding: 8px;">{{ $client.String "domain" }}</td>
+                          <td style="padding: 8px;">{{ $client.String "hits" }}</td>
+                          <td style="padding: 8px;">
+                              {{ if $client.Bool "rateLimited" }}Yes{{ else }}No{{ end }}
+                          </td>
+                          </tr>
+                      {{ end }}
+                      </tbody>
+                  </table>
+                  </li>
+                  <li>
+                  <!-- Top Domains Table -->
+                  <h4 class="size-h5 color-highlight">Top Domains</h4>
+                  <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                      <thead>
+                      <tr style="border-bottom: 1px solid #ccc;">
+                          <th style="text-align: left; padding: 8px;">Domain</th>
+                          <th style="text-align: left; padding: 8px;">Hits</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {{ range $index, $domain := .JSON.Array "response.topDomains" }}
+                          <tr>
+                          <td style="padding: 8px;">{{ $domain.String "name" }}</td>
+                          <td style="padding: 8px;">{{ $domain.String "hits" }}</td>
+                          </tr>
+                      {{ end }}
+                      </tbody>
+                  </table>
+                  </li>
+                  <li>
+                  <!-- Top Blocked Domains Table -->
+                  <h4 class="size-h5 color-highlight">Top Blocked Domains</h4>
+                  <table style="width: 100%; border-collapse: collapse;">
+                      <thead>
+                      <tr style="border-bottom: 1px solid #ccc;">
+                          <th style="text-align: left; padding: 8px;">Domain</th>
+                          <th style="text-align: left; padding: 8px;">Hits</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {{ range $index, $blocked := .JSON.Array "response.topBlockedDomains" }}
+                          <tr>
+                          <td style="padding: 8px;">{{ $blocked.String "name" }}</td>
+                          <td style="padding: 8px;">{{ $blocked.String "hits" }}</td>
+                          </tr>
+                      {{ end }}
+                      </tbody>
+                  </table>
+                  </li>
+              </ul>
+
+          - type: custom-api
+            title: Immich Stats
+            hide-header: false
+            cache: 10m
+            url: ${IMMICH_URL}/api/server/statistics
+            headers:
+              x-api-key: ${IMMICH_KEY}
+            subrequests:
+              storage:
+                url: ${IMMICH_URL}/api/server/storage
+                headers:
+                    x-api-key: ${IMMICH_KEY}
+            options:
+              show-cards: true
+              show-storage-bar: true
+            template: |
+              {{ $photos := .JSON.Int "photos" }}
+              {{ $videos := .JSON.Int "videos" }}
+              {{ $usageBytes := .JSON.Int "usage" }}
+              {{ $usageGiB := div (toFloat $usageBytes) 1073741824.0 }}
+              {{ $storage := .Subrequest "storage" }}
+              {{ $storage_ok := and (ge $storage.Response.StatusCode 200) (le $storage.Response.StatusCode 299) }}
+              {{ $totalGiB := 0.0 }}
+              {{ $percentage := 0.0 }}
+              {{ $storageError := "" }}
+              {{ if $storage_ok }}
+                {{ $totalGiB = div (toFloat ($storage.JSON.Int "diskSizeRaw")) 1073741824.0 }}
+                {{ $percentage = $storage.JSON.Float "diskUsagePercentage" }}
+              {{ else }}
+                {{ $storageError = printf "%d %s" $storage.Response.StatusCode $storage.Response.Status }}
+              {{ end }}
+              {{ $showCards := .Options.BoolOr "show-cards" true }}
+              {{ $showStorageBar := .Options.BoolOr "show-storage-bar" true }}
+
+              {{ if $showCards }}
+              <div style="display: flex; gap: 16px; flex-wrap: wrap;{{ if $showStorageBar }} margin-bottom: 16px;{{ end }}">
+                <!-- Photos Card -->
+                <div style="display: flex; flex-direction: column; justify-content: space-between; background-color: var(--color-widget-background-highlight); border-radius: 12px; padding: 20px; flex: 1; min-width: 200px;">
+                  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <svg style="width: 40px; height: 40px; color: var(--color-primary); flex-shrink: 0;" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M13.73,15L9.83,21.76C10.53,21.91 11.25,22 12,22C14.4,22 16.6,21.15 18.32,19.75L14.66,13.4M2.46,15C3.38,17.92 5.61,20.26 8.45,21.34L12.12,15M8.54,12L4.64,5.25C3,7 2,9.39 2,12C2,12.68 2.07,13.35 2.2,14H9.69M21.8,10H14.31L14.6,10.5L19.36,18.75C21,16.97 22,14.6 22,12C22,11.31 21.93,10.64 21.8,10M21.54,9C20.62,6.07 18.39,3.74 15.55,2.66L11.88,9M9.4,10.5L14.17,2.24C13.47,2.09 12.75,2 12,2C9.6,2 7.4,2.84 5.68,4.25L9.34,10.6L9.4,10.5Z"/>
+                    </svg>
+                    <span style="font-weight: 600; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-text-highlight);">Photos</span>
+                  </div>
+                  <div style="font-family: ui-monospace, monospace; font-size: 1.85rem; font-weight: 700; color: var(--color-text-highlight); word-break: break-all;">
+                    {{ if lt $photos 10 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">000000000</span>{{ else if lt $photos 100 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">00000000</span>{{ else if lt $photos 1000 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">0000000</span>{{ else if lt $photos 10000 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">000000</span>{{ else if lt $photos 100000 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">00000</span>{{ else if lt $photos 1000000 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">0000</span>{{ end }}{{ $photos }}
+                  </div>
+                </div>
+
+                <!-- Videos Card -->
+                <div style="display: flex; flex-direction: column; justify-content: space-between; background-color: var(--color-widget-background-highlight); border-radius: 12px; padding: 20px; flex: 1; min-width: 200px;">
+                  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <svg style="width: 40px; height: 40px; color: var(--color-primary); flex-shrink: 0;" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M10,16.5V7.5L16,12M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                    </svg>
+                    <span style="font-weight: 600; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-text-highlight);">Videos</span>
+                  </div>
+                  <div style="font-family: ui-monospace, monospace; font-size: 1.85rem; font-weight: 700; color: var(--color-text-highlight); word-break: break-all;">
+                    {{ if lt $videos 10 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">000000000</span>{{ else if lt $videos 100 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">00000000</span>{{ else if lt $videos 1000 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">0000000</span>{{ else if lt $videos 10000 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">000000</span>{{ else if lt $videos 100000 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">00000</span>{{ else if lt $videos 1000000 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">0000</span>{{ end }}{{ $videos }}
+                  </div>
+                </div>
+
+                <!-- Storage GiB Card -->
+                <div style="display: flex; flex-direction: column; justify-content: space-between; background-color: var(--color-widget-background-highlight); border-radius: 12px; padding: 20px; flex: 1; min-width: 200px;">
+                  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <svg style="width: 40px; height: 40px; color: var(--color-primary); flex-shrink: 0;" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M11,2V22C5.9,21.5 2,17.2 2,12C2,6.8 5.9,2.5 11,2M13,2V11H22C21.5,6.2 17.8,2.5 13,2M13,13V22C17.7,21.5 21.5,17.8 22,13H13Z"/>
+                    </svg>
+                    <span style="font-weight: 600; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-text-highlight);">Storage</span>
+                  </div>
+                <div style="font-family: ui-monospace, monospace; font-size: 1.85rem; font-weight: 700; color: var(--color-text-highlight); word-break: break-all;">
+                  {{ $gib := printf "%.0f" $usageGiB }}
+                  {{ if lt $usageGiB 10.0 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">000000000</span>{{ else if lt $usageGiB 100.0 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">00000000</span>{{ else if lt $usageGiB 1000.0 }}<span style="color: var(--color-text-subdue); font-weight: 400; opacity: 0.6;">0000000</span>{{ end }}{{ $gib }}<span style="font-size: 1.5rem; font-weight: 500; color: var(--color-text-subdue); margin-left: 8px;">GiB</span>
+                </div>
+                </div>
+              </div>
+                {{ end }}
+
+                {{ if $showStorageBar }}
+                <!-- Progress Bar Section -->
+                <div style="background-color: var(--color-widget-background-highlight); border-radius: 12px; padding: 20px;">
+                  <div style="font-weight: 600; color: var(--color-text-highlight); margin-bottom: 8px; font-size: 1.6rem;">Storage space</div>
+                  {{ if gt $totalGiB 0.0 }}
+                    <div style="color: var(--color-text-highlight); font-size: 1.4rem; margin-bottom: 12px; font-weight: 500;">{{ printf "%.1f" $usageGiB }} GiB of {{ printf "%.1f" $totalGiB }} GiB used</div>
+                    <div style="color: var(--color-text-subdue); font-size: 1.35rem; margin-bottom: 12px;">{{ printf "%.1f" $percentage }}% full</div>
+                  {{ else }}
+                    <div style="color: var(--color-text-highlight); font-size: 1.4rem; margin-bottom: 12px; font-weight: 500;">{{ printf "%.1f" $usageGiB }} GiB used</div>
+                    <div style="color: var(--color-text-negative); font-size: 1.35rem; margin-bottom: 12px;">Total storage unavailable ({{ $storageError }}). Ensure API key has permissions for /api/server/storage.</div>
+                  {{ end }}
+                  <div style="height: 12px; width: 100%; background-color: var(--color-text-subdue); border-radius: 6px; overflow: hidden; opacity: 0.2;">
+                    <div style="height: 100%; background-color: var(--color-primary); border-radius: 6px; transition: width 0.3s ease; width: {{ if gt $totalGiB 0.0 }}{{ printf "%.1f" $percentage }}%{{ else }}0%{{ end }};"></div>
+                  </div>
+                </div>
+                {{ end }}
+
+    - size: small
+      widgets:
+
+        - type: clock
+          hour-format: 12h
+
+        - type: weather
+          location: Reisterstown, Maryland, United States
+          units: imperial # alternatively "imperial"
+          hour-format: 12h # alternatively "24h"
+          # Optionally hide the location from being displayed in the widget
+          hide-location: false
+          # Optionally show the name of the state or municipality
+          show-area-name: true
+
+        - type: custom-api
+          title: Air Quality
+          cache: 10m
+          url: https://api.waqi.info/feed/@8700/?token=7d8557f54bea208aa745eb7105eaeb0aad4d89b8
+          template: |
+            {{ $aqi := printf "%03s" (.JSON.String "data.aqi") }}
+            {{ $aqiraw := .JSON.String "data.aqi" }}
+            {{ $updated := .JSON.String "data.time.iso" }}
+            {{ $humidity := .JSON.String "data.iaqi.h.v" }}
+            {{ $ozone := .JSON.String "data.iaqi.o3.v" }}
+            {{ $pm25 := .JSON.String "data.iaqi.pm25.v" }}
+            {{ $pressure := .JSON.String "data.iaqi.p.v" }}
+
+            <div class="flex justify-between">
+              <div class="size-h5">
+                {{ if le $aqi "050" }}
+                  <div class="color-positive">Good air quality</div>
+                {{ else if le $aqi "100" }}
+                  <div class="color-primary">Moderate air quality</div>
+                {{ else }}
+                  <div class="color-negative">Bad air quality</div>
+                {{ end }}
+              </div>
+            </div>
+
+            <div class="color-highlight size-h2">AQI: {{ $aqiraw }}</div>
+            <div style="border-bottom: 1px solid; margin-block: 10px;"></div>
+
+            <div class="margin-block-2">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+
+                <div>
+                  <div class="size-h3 color-highlight">{{ $humidity }}%</div>
+                  <div class="size-h6">HUMIDITY</div>
+                </div>
+
+                <div>
+                  <div class="size-h3 color-highlight">{{ $ozone }} μg/m³</div>
+                  <div class="size-h6">OZONE</div>
+                </div>
+
+                <div>
+                  <div class="size-h3 color-highlight">{{ $pm25 }} μg/m³</div>
+                  <div class="size-h6">PM2.5</div>
+                </div>
+
+                <div>
+                  <div class="size-h3 color-highlight">{{ $pressure }} hPa</div>
+                  <div class="size-h6">PRESSURE</div>
+                </div>
+
+                </div>
+
+              <div class="size-h6" style="margin-top: 10px;">Last Updated at {{ slice $updated 11 16 }}</div>
+            </div>
+
+        - type: custom-api
+          title: Forecast
+          body-type: string
+          cache: 1h
+          options:
+            location: ${WEATHER_LOCATION}
+            temp_unit: "fahrenheit"
+            weekend_color: "#34363D"
+            color_clear: "#FFA500"
+            color_partly: "#EBE387"
+            color_cloud: "#A9A9A9"
+            color_smog: "#D3D3D3"
+            color_drizzle: "#5F9EA0"
+            color_rain: "#4682B4"
+            color_freezing_rain: "#B0E0E6"
+            color_snow: "#FFFFFF"
+            color_thunderstorm: "#696969"
+            color_other: "#FFFFFF"
+            color_red: "#F08C46"
+            color_yellow: "#F0F046"
+            color_blue: "#46F0F0"
+            color_white: "#FFFFFF"
+          template: |
+            {{/* THESE VALUES CAN BE CHANGED BY ADDING AN ENTRY TO THE OPTIONS SECTION */}}
+              {{ $temp_unit := .Options.StringOr "temp_unit" "celsius" }}
+              {{ $weekend_color := .Options.StringOr "weekend_color" "var(--color-separator)" }}
+              {{ $overlay_color := .Options.StringOr "overlay_color" "hsl(var(--bghs), var(--bgl), 50%)" }}
+              {{/* the following variables define the coloring of the sunny/cloudy/etc. weather icons*/}}
+                {{ $color_clear := .Options.StringOr "color_clear" "var(--color-text-highlight)" }}
+                {{ $color_partly := .Options.StringOr "color_partly" "var(--color-text-highlight)"}}
+                {{ $color_cloud := .Options.StringOr "color_cloud" "var(--color-text-highlight)"}}
+                {{ $color_smog := .Options.StringOr "color_smog" "var(--color-text-highlight)"}}
+                {{ $color_drizzle := .Options.StringOr "color_drizzle" "var(--color-text-highlight)"}}
+                {{ $color_rain := .Options.StringOr "color_rain" "var(--color-text-highlight)"}}
+                {{ $color_freezing_rain := .Options.StringOr "color_freezing_rain" "var(--color-text-highlight)"}}
+                {{ $color_snow := .Options.StringOr "color_snow" "var(--color-text-highlight)F"}}
+                {{ $color_thunderstorm := .Options.StringOr "color_thunderstorm" "var(--color-text-highlight)"}}
+                {{ $color_other := .Options.StringOr "color_other" "var(--color-text-highlight)"}}
+              {{/* the following variables define the temperature gradient coloring for the daily rectangles */}}
+              {{ $color_red := .Options.StringOr "color_red" "var(--color-negative)" }}
+              {{ $color_yellow := .Options.StringOr "color_yellow" "var(--color-text-subdue)" }}
+              {{ $color_blue := .Options.StringOr "color_blue" "var(--color-positive)" }}
+              {{ $color_white := .Options.StringOr "color_white" "var(--color-text-highlight)" }}
+              {{ $temp_red := .Options.FloatOr "temp_red" 27 }}
+              {{ $temp_yellow := .Options.FloatOr "temp_yellow" 20 }}
+              {{ $temp_blue := .Options.FloatOr "temp_blue" 10.0 }}
+              {{ $temp_white := .Options.FloatOr "temp_white" 0 }}
+              {{ if eq $temp_unit "fahrenheit" }}
+                {{ $temp_red = .Options.FloatOr "temp_red" 80.0 }}
+                {{ $temp_yellow = .Options.FloatOr "temp_yellow" 70.0 }}
+                {{ $temp_blue = .Options.FloatOr "temp_blue" 50.0 }}
+                {{ $temp_white = .Options.FloatOr "temp_white" 30.0 }}
+              {{end}}
+
+            {{/* Request 1: get latitude and longitude for user's city */}}
+            {{ $location_string := replaceAll " " "%20" (.Options.StringOr "location" "") }}
+            {{ $url1 := printf "https://geocoding-api.open-meteo.com/v1/search?name=%s&count=20&language=en&format=json" $location_string }}
+            {{ $req1 := newRequest $url1 | getResponse }}
+            {{ $latitude := $req1.JSON.String "results.0.latitude" }}
+            {{ $longitude := $req1.JSON.String "results.0.longitude" }}
+
+            {{/* Request 2: get daily weather forecast based on latitude and longitude */}}
+            {{ $url2 := printf "https://api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&temperature_unit=%s&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=America/New_York" $latitude $longitude $temp_unit}}
+            {{ $req2 := newRequest $url2 | getResponse }}
+
+            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+
+              {{/* Show abbreivated day of week */}}
+              {{ $dates := $req2.JSON.Array "daily.time" }}
+              <div style="position: relative; width: 100%; height: 25px;">
+                {{ range $index, $date := $dates }}
+
+                  {{/* prepare to print M Tu W Th F Sa Su */}}
+                  {{ $dateString := .String "" }}
+                  {{ $parsedDate := $dateString | parseTime "DateOnly" }}
+                  {{ $dayOfWeek := $parsedDate.Format "Monday" | trimSuffix "day" | trimSuffix "on" | trimSuffix "es" | trimSuffix "edn" |
+                      trimSuffix "urs" | trimSuffix "ri" | trimSuffix "tur" | trimSuffix "n" }}
+
+                  {{/* highlight weekends (Sa Su) */}}
+                  {{ $day_color := "" }}
+                  {{ if eq $dayOfWeek "Sa" "Su" }}
+                    {{ $day_color = $weekend_color }}
+                  {{ end }}
+
+                  <div style="text-align: center; width: 10%; height: 25px; line-height: 25px; margin: 0 10% 0 3%; left: {{ mul $index 14 }}%; position: absolute; background-color: {{ $day_color | safeCSS }} ">
+                    <p class="size-h4 color-paragraph">{{ $dayOfWeek }}</p>
+                  </div>
+                {{ end }}
+              </div>
+
+              {{/* Show numeric day of month */}}
+              <div style="position: relative; width: 100%; height: 25px;">
+                {{ range $index, $date := $dates }}
+                  {{ $dateString := .String "" }}
+                  {{ $trimmedDate := replaceMatches "[0-9]+-[0-9]+-" "" $dateString }}
+                  <div style="text-align: center; width: 10%; height: 25px; line-height: 25px; margin: 0 10% 0 3%; left: {{ mul $index 14 }}%; position: absolute;">
+                    <p class="size-h4 color-paragraph">{{ $trimmedDate }}</p>
+                  </div>
+                {{ end }}
+              </div>
+
+              {{/* Show weather conditions using fontawesome icons */}}
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+              {{ $codes := $req2.JSON.Array "daily.weathercode" }}
+
+              <div style="position: relative; width: 100%; height: 30px;">
+                {{ range $index, $thiscode := $codes }}
+                  {{ $code := .Int "" }}
+
+                  <div style="text-align: center; width: 10%; height: 25px; line-height: 25px; margin: 0 10% 0 3%; left: {{ mul $index 14 }}% ; position: absolute;">
+                  {{ $wtype := "" }}
+                  {{ $wicon := "" }}
+                  {{ $wcolor := "" }}
+                  {{ if eq $code 0 }}
+                    {{ $wtype = "Clear" }}
+                    {{ $wicon = "fas fa-sun" }}
+                    {{ $wcolor = $color_clear }}
+                  {{ else if eq $code 1 2 }}
+                    {{ $wtype = "Part Clear" }}
+                    {{ $wicon = "fas fa-cloud-sun" }}
+                    {{ $wcolor = $color_partly }}
+                  {{ else if eq $code 3 }}
+                    {{ $wtype = "Cloudy" }}
+                    {{ $wicon = "fas fa-cloud" }}
+                    {{ $wcolor = $color_cloud }}
+                  {{ else if eq $code 45 48 }}
+                    {{ $wtype = "Fog" }}
+                    {{ $wicon = "fas fa-smog" }}
+                    {{ $wcolor = $color_smog }}
+                  {{ else if eq $code 51 53 55 56 57 }}
+                    {{ $wtype = "Drizzle" }}
+                    {{ $wicon = "fas fa-cloud-rain" }}
+                    {{ $wcolor = $color_drizzle }}
+                  {{ else if eq $code 61 63 65 80 81 82 }}
+                    {{ $wtype = "Rain" }}
+                    {{ $wicon = "fas fa-cloud-showers-heavy" }}
+                    {{ $wcolor = $color_rain }}
+                  {{ else if eq $code 66 67 }}
+                    {{ $wtype = "Freezing Rain" }}
+                    {{ $wicon = "fas fa-snowflake" }}
+                    {{ $wcolor = $color_freezing_rain }}
+                  {{ else if eq $code 71 73 75 77 85 86 }}
+                    {{ $wtype = "Snow" }}
+                    {{ $wicon = "fas fa-snowman" }}
+                    {{ $wcolor = $color_snow }}
+                  {{ else if eq $code 95 96 99 }}
+                    {{ $wtype = "Thunderstorm" }}
+                    {{ $wicon = "fas fa-bolt" }}
+                    {{ $wcolor = $color_thunderstorm }}
+                  {{ else }}
+                    {{ $wtype = "Other" }}
+                    {{ $wicon = "fa-solid fa-question" }}
+                    {{ $wcolor = $color_other }}
+                  {{ end }}
+                  <i class={{ $wicon }} style="font-size: 20px; color: {{ $wcolor | safeCSS }};", title = {{$wtype }}></i>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+
+            {{/* ===== show daily min and max temperatures ===== */}}
+            {{ $maxTemps := $req2.JSON.Array "daily.temperature_2m_max" }}
+            {{ $minTemps := $req2.JSON.Array "daily.temperature_2m_min" }}
+
+            {{/* get overall max and min temp over week's range */}}
+            {{/* to determine vertical scale */}}
+            <div style="display: flex; justify-content: flex-start; align-items: center;">
+
+              {{ $max_max := 0 }}
+              {{ range $maxTemps }}
+                  {{ if gt (.Int "") $max_max }}
+                    {{ $max_max = (.Int "") }}
+                  {{ end }}
+              {{ end }}
+              {{ $min_min := 999 }}
+              {{ range $minTemps }}
+                  {{ if lt (.Int "") $min_min }}
+                    {{ $min_min = (.Int "") }}
+                  {{ end }}
+              {{ end }}
+
+              {{/* add a small buffer */}}
+              {{ $max_max = add $max_max 1 }}
+              {{ $min_min = sub $min_min 1 }}
+
+              {{/* outer div to contain the temp chart */}}
+              <div style="position: relative; width: 100%; height: 75px;">
+                {{/* get relative % heights for each daily max and min */}}
+                {{ $temp_range := sub $max_max $min_min }}
+
+                {{ range $index, $thisHigh := $maxTemps }}
+                    {{ $thisLow := index $minTemps $index }}
+                    {{ $thisHigh = $thisHigh.Float "" }}
+                    {{ $thisLow = $thisLow.Float "" }}
+
+                    {{ $thisHighPct := sub 1 (div (sub $max_max $thisHigh) $temp_range) }}
+                    {{ $thisLowPct := div (sub $thisLow $min_min) $temp_range }}
+
+                    {{/* define color gradient per. values between $temp_red and $temp_yellow are shown as a color gradient from $color_red to $color_yellow */}}
+                    {{/* for colors partially in range, can represent as negative percent */}}
+                    {{ $thisTempRange := sub $thisHigh $thisLow }}
+                    {{ $red_pos := mul 100 (div (sub $thisHigh $temp_red) $thisTempRange) | toInt }}
+                    {{ $yel_pos := mul 100 (div (sub $thisHigh $temp_yellow) $thisTempRange) | toInt }}
+                    {{ $blu_pos := mul 100 (div (sub $thisHigh $temp_blue) $thisTempRange) | toInt }}
+                    {{ $whi_pos := mul 100 (div (sub $thisHigh $temp_white) $thisTempRange) | toInt }}
+                    {{ $gradient_string := printf "%s %d%%, %s %d%%, %s %d%%, %s %d%%" $color_red $red_pos $color_yellow $yel_pos $color_blue $blu_pos $color_white $whi_pos }}
+
+                    {{/* output daily div */}}
+                    <div style="left: {{ mul $index 14 | add 3 }}%; bottom: {{ mul $thisLowPct 100 | toInt }}%;
+                      height: {{ mul (sub $thisHighPct $thisLowPct) 100 | toInt }}%; position: absolute;
+                      background:linear-gradient({{ $gradient_string | safeCSS }}); width: 10%; text-align: center; border-radius: 10px;">
+
+                      {{/* Based on rectangle height & position, print high and low temperatures either inside or outside the rectangle. */}}
+                      {{ $top_pos := -2 }}
+                      {{ $bot_pos := -2 }}
+                      {{ $pos_thresh := 0.20 }}
+                      {{ if lt (div $thisTempRange $temp_range) $pos_thresh }}
+                        {{ $top_pos = -17 }}
+                        {{ $bot_pos = -19 }}
+                      {{ else if and (lt (div $thisTempRange $temp_range) (mul $pos_thresh 2)) (lt (sub 1 $thisHighPct) $thisLowPct) }}
+                        {{ $bot_pos = -19 }}
+                      {{ else if and (lt (div $thisTempRange $temp_range) (mul $pos_thresh 2)) (gt (sub 1 $thisHighPct) $thisLowPct) }}
+                        {{ $top_pos = -17 }}
+                      {{ end }}
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: {{ $overlay_color | safeCSS }}; z-index: 1;  border-radius: 10px;">
+                          <p style='color: #F0F0F0; position: absolute; top: {{ $top_pos }}px; left: 0px; right: 0px'>{{ $thisHigh | toInt }}</p>
+                          <p style='color: #F0F0F0; position: absolute; bottom: {{ $bot_pos }}px; left: 0px; right:0px'>{{ $thisLow | toInt }}</p>
+                        </div>
+                      </div>
+                {{ end }}
+
+              </div>
+            </div>
+
+        - type: calendar
+          first-day-of-week: sunday
