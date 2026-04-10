@@ -62,7 +62,7 @@
     - title: ZimaOS NAS
       url: http://storage-server.internal
       allow-insecure: true
-      icon: di:zima-os.png
+      icon: auto-invert sh:zimaos-dark
     - title: ZVM (storage-server)
       url: http://storage-server.internal/modules/zimaos_zvm/
       icon: /assets/icons/zvm.svg
