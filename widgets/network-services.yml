@@ -46,7 +46,7 @@
     # icon: sh:pi-hole
     - title: Portracker
       url: http://storage-server.internal:4999
-      icon: sh:portracker-light
+      icon: auto-invert sh:portracker
     - title: Spoolman
       url: http://storage-server.internal:7912
       icon: sh:spoolman
