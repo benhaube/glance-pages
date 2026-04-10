@@ -119,7 +119,7 @@
           icon: auto-invert sh:micro-center
           # icon: /assets/icons/micro-center.png
     - title: Social Media
-      color: 284 66 40
+      color: 211 99 53
       links:
         - title: Bluesky
           url: https://bsky.app
