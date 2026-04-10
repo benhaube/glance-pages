@@ -8,7 +8,7 @@
           icon: /assets/icons/exelon-dark.svg
         - title: Discover Bank
           url: https://www.discover.com/online-banking/
-          icon: auto-invert sh:discover-card
+          icon: auto-invert sh:discover-card-dark
         - title: Geico
           url: https://www.geico.com/
           icon: /assets/icons/geico.svg
@@ -80,13 +80,13 @@
           icon: sh:google-news
         - title: Ground News
           url: https://ground.news/
-          icon: /assets/icons/gn.svg
+          icon: auto-invert /assets/icons/gn.svg
         - title: The Baltimore Banner
           url: http://thebaltimorebanner.com/
-          icon: assets/icons/baltimore-banner.svg
+          icon: auto-invert /assets/icons/baltimore-banner.svg
         - title: Wired
           url: http://wired.com/
-          icon: /assets/icons/wired-square.svg
+          icon: auto-invert /assets/icons/wired-square.svg
     - title: Security
       color: 219 81 48
       links:
