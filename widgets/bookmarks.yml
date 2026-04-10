@@ -44,7 +44,7 @@
       links:
         - title: ACI Learning
           url: https://app.acilearning.com/
-          icon: /assets/icons/logo-aci-light.png
+          icon: auto-invert /assets/icons/aci.png
         - title: CompTIA
           url: http://comptia.org/
           icon: /assets/icons/comptia.svg
