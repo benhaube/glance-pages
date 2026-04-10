@@ -32,7 +32,7 @@ theme:
       positive-color: 61 66 44
       negative-color: 6 96 59
     Formula-One:
-      background-color: 0 0 7
+      background-color: 0 0 15
       contrast-multiplier: 1.3
       primary-color: 2 100 44
       positive-color: 112 82 46
