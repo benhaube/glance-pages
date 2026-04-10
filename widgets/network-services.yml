@@ -6,6 +6,9 @@
       url: https://asusrouter.internal:8443
       icon: di:asus-router
       allow-insecure: true
+    - title: Cloudflare Tunnel
+      url: http://storage-server.internal:14333/
+      icon: sh:cloudflare
     - title: F1 Replay Timing
       url: http://storage-server.internal:3000
       icon: /assets/icons/f1-replay-timing.svg
