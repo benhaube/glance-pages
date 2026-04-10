@@ -62,7 +62,7 @@
           icon: mdi:file-document
         - title: Fedora Discussion
           url: https://discussion.fedoraproject.org
-          icon: /assets/icons/fedora-discussion.png 
+          icon: mdi:forum
         - title: Red Hat
           url: https://www.redhat.com/en
           icon: di:redhat-linux
