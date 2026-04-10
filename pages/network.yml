@@ -10,7 +10,7 @@
 
         - $include: /app/config/widgets/beszel.yml
         - $include: /app/config/widgets/uptime-kuma-ssh.yml
-        - $include: /app/config/widgets/wg-easy.yml
+        # - $include: /app/config/widgets/wg-easy.yml
         - $include: /app/config/widgets/ha-wan.yml
         - $include: /app/config/widgets/ha-bandwidth.yml
         - $include: /app/config/widgets/releases.yml
