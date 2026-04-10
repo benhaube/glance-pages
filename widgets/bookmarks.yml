@@ -8,7 +8,7 @@
           icon: /assets/icons/exelon-dark.svg
         - title: Discover Bank
           url: https://www.discover.com/online-banking/
-          icon: sh:dicover-card
+          icon: sh:discover-card
         - title: Geico
           url: https://www.geico.com/
           icon: /assets/icons/geico.svg
@@ -113,7 +113,7 @@
           icon: /assets/icons/best-buy.svg
         - title: Curaleaf
           url: https://curaleaf.com
-          icon: /assets/icons/CURLF-white.svg
+          icon: /assets/icons/curaleaf.svg
         - title: Micro Center
           url: https://microcenter.com
           icon: auto-invert sh:micro-center
@@ -129,7 +129,7 @@
           icon: sh:mastodon
         - title: Patreon
           url: https://patreon.com
-          icon: auto-invert sh:patereon
+          icon: auto-invert sh:patreon
         - title: Reddit
           url: https://reddit.com
           icon: sh:reddit
