@@ -5,7 +5,7 @@
       links:
         - title: BGE
           url: https://www.bge.com/
-          icon: /assets/icons/exelon-dark.svg
+          icon: /assets/icons/exelon.svg
         - title: Discover Bank
           url: https://www.discover.com/online-banking/
           icon: auto-invert sh:discover-card-dark
