@@ -107,13 +107,13 @@
       links:
         - title: Amazon
           url: https://amazon.com
-          icon: auto-invert sh:amazon
+          icon: auto-invert sh:amazon-dark
         - title: Best Buy
           url: https://bestbuy.com
-          icon: auto-invert /assets/icons/best-buy.svg
+          icon: /assets/icons/best-buy.svg
         - title: Curaleaf
           url: https://curaleaf.com
-          icon: /assets/icons/curaleaf.svg
+          icon: auto-invert /assets/icons/curaleaf.svg
         - title: Micro Center
           url: https://microcenter.com
           icon: auto-invert sh:micro-center
