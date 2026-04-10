@@ -36,6 +36,9 @@
     - title: Network Documentation
       url: http://storage-server.internal:8080
       icon: /assets/icons/file-document-multiple-color.svg
+    - title: Obsidian LiveSync (CouchDB)
+      url: http://storage-server.internal:5984/_utils/
+      icon: sh:couchdb
     - title: Openprinting CUPS Server
       url: https://192.168.50.2:631/
       allow-insecure: true
