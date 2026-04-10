@@ -31,7 +31,7 @@
           url: https://www.thundermail.com/
           icon: sh:thunderbird
     - title: Entertainment
-      color: 9 100 50
+      color: 0 100 50
       links:
         - title: YouTube
           url: https://youtube.com
