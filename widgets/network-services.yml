@@ -38,7 +38,7 @@
       icon: /assets/icons/file-document-multiple-color.svg
     - title: Obsidian LiveSync (CouchDB)
       url: http://storage-server.internal:5984/_utils/
-      icon: sh:couchdb
+      icon: /assets/icons/obsidian-livesync.svg
     - title: Openprinting CUPS Server
       url: https://192.168.50.2:631/
       allow-insecure: true
@@ -59,7 +59,7 @@
     - title: Technitium DNS
       url: http://debian-vm.internal:5380
       icon: sh:technitium
-    - title: ttydBridge (storage-server)
+    - title: Terminal (storage-server)
       url: http://storage-server.internal:2222/
       icon: auto-invert si:gnubash
     - title: WireGuard Easy
