@@ -59,7 +59,7 @@
           icon: sh:fedora
         - title: Fedora Docs
           url: https://docs.fedoraproject.org/en-US/docs/
-          icon: /assets/icons/fedora-docs.svg
+          icon: auto-invert /assets/icons/fedora-docs.svg
         - title: Fedora Discussion
           url: https://discussion.fedoraproject.org
           icon: /assets/icons/fedora-discussion.png 
