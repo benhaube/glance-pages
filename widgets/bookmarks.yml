@@ -8,7 +8,7 @@
           icon: /assets/icons/exelon-dark.svg
         - title: Discover Bank
           url: https://www.discover.com/online-banking/
-          icon: /assets/icons/discover.png
+          icon: sh:dicover-card
         - title: Geico
           url: https://www.geico.com/
           icon: /assets/icons/geico.svg
@@ -17,13 +17,13 @@
           icon: /assets/icons/rentcafe.png
         - title: Xfinity
           url: https://www.xfinity.com/overview
-          icon: /assets/icons/xfinity.png
+          icon: auto-invert sh:xfinity
     - title: Email
       color: 46 100 50
       links:
         - title: Fastmail
           url: https://app.fastmail.com
-          icon: sh:fastmail-light
+          icon: sh:fastmail
         - title: Gmail
           url: https://mail.google.com
           icon: sh:gmail
@@ -33,12 +33,9 @@
     - title: Entertainment
       color: 9 100 50
       links:
-        - title: Pocket Casts
-          url: https://pocketcasts.com/podcasts
-          icon: di:pocket-casts
         - title: YouTube
           url: https://youtube.com
-          icon: di:youtube
+          icon: sh:youtube
         - title: YouTube Music
           url: https://music.youtube.com
           icon: di:youtube-music
@@ -56,13 +53,16 @@
       links:
         - title: Debian
           url: https://www.debian.org/
-          icon: sh:debian-light
-        - title: Fedora Docs
-          url: https://docs.fedoraproject.org/en-US/docs/
-          icon: sh:fedora-light
+          icon: sh:debian
         - title: Fedora Project
           url: https://fedoraproject.org//
-          icon: di:fedora-alt
+          icon: sh:fedora
+        - title: Fedora Docs
+          url: https://docs.fedoraproject.org/en-US/docs/
+          icon: /assets/icons/fedora-docs.svg
+        - title: Fedora Discussion
+          url: https://discussion.fedoraproject.org
+          icon: /assets/icons/fedora-discussion.png 
         - title: Red Hat
           url: https://www.redhat.com/en
           icon: di:redhat-linux
@@ -74,10 +74,10 @@
           icon: mdi:clock-time-nine-outline
         - title: Android Faithful
           url: https://www.androidfaithful.com/
-          icon: di:android
+          icon: sh:android
         - title: Google News
           url: http://news.google.com/
-          icon: di:google-news
+          icon: sh:google-news
         - title: Ground News
           url: https://ground.news/
           icon: /assets/icons/gn.svg
@@ -96,24 +96,18 @@
         - title: Ente Auth
           url: https://auth.ente.io/credentials
           icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/ente-auth.png
-        - title: Firefox Relay
-          url: https://relay.firefox.com
-          icon: /assets/icons/firefox-relay.png
-        - title: Mozilla Monitor
-          url: https://monitor.mozilla.org
-          icon: sh:mozilla-monitor
         - title: Mozilla VPN
           url: https://www.mozilla.org/en-US/products/vpn/
           icon: auto-invert sh:mozilla-vpn
         - title: Ring Dashboard
           url: https://account.ring.com/account/dashboard
-          icon: si:ring
+          icon: auto-invert sh:ring
     - title: Shopping
       color: 37 100 50
       links:
         - title: Amazon
           url: https://amazon.com
-          icon: di:amazon-light
+          icon: sh:amazon
         - title: Best Buy
           url: https://bestbuy.com
           icon: /assets/icons/best-buy.svg
@@ -129,34 +123,37 @@
       links:
         - title: Bluesky
           url: https://bsky.app
-          icon: di:bluesky
+          icon: sh:bluesky
         - title: Mastodon
           url: https://twit.social
-          icon: di:mastodon
+          icon: sh:mastodon
         - title: Patreon
           url: https://patreon.com
-          icon: di:patreon-light
+          icon: auto-invert sh:patereon
         - title: Reddit
           url: https://reddit.com
-          icon: di:reddit
+          icon: sh:reddit
         - title: X-Cancel
           url: https://xcancel.com/
-          icon: di:twitter
+          icon: sh:twitter
     - title: Software
       color: 210 12 42
       links:
         - title: Docker Hub
           url: https://hub.docker.com/
-          icon: di:docker
+          icon: sh:docker
+        - title: F-Droid
+          url: https://f-droid.org/
+          icon: di:f-droid
         - title: Flathub
           url: https://flathub.org/en
-          icon: si:flathub
+          icon: auto-invert sh:flathub
         - title: Github
           url: https://github.com/
-          icon: di:github-light
+          icon: auto-invert sh:github
         - title: GitLab
           url: https://gitlab.com/
-          icon: di:gitlab
+          icon: sh:gitlab
         - title: Google Play Store
           url: http://play.google.com/
           icon: sh:google-play
