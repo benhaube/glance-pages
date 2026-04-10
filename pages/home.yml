@@ -12,6 +12,7 @@
     - size: small
       widgets:
 
+        - $include: /app/config/widgets/nasa-apod.yml
         - $include: /app/config/widgets/random-fact.yml
         - $include: /app/config/widgets/bookmarks.yml
 
