@@ -65,4 +65,4 @@
       icon: auto-invert sh:zimaos-dark
     - title: ZVM (storage-server)
       url: http://storage-server.internal/modules/zimaos_zvm/
-      icon: /assets/icons/zvm.svg
+      icon: auto-invert sh:qemu-dark
