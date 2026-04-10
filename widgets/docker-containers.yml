@@ -55,7 +55,7 @@
       parent: portainer-ee
     portracker:
       name: Portracker
-      icon: sh:portracker-light
+      icon: auto-invert sh:portracker
     uptime-kuma:
       name: Uptime-Kuma
       description: Network service monitoring tool
