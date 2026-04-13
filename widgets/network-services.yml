@@ -35,7 +35,7 @@
     # icon: https://avatars.githubusercontent.com/u/57169982?s=48&v=4
     - title: Network Documentation
       url: http://storage-server.internal:8080
-      icon: /assets/icons/file-document-multiple-color.svg
+      icon: /assets/icons/network-documentation-portfolio.svg
     - title: Obsidian LiveSync (CouchDB)
       url: http://storage-server.internal:5984/_utils/
       icon: /assets/icons/obsidian-livesync.svg
