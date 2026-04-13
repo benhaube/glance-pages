@@ -38,11 +38,11 @@
       icon: /assets/icons/network-documentation-portfolio.svg
     - title: Obsidian LiveSync (CouchDB)
       url: http://storage-server.internal:5984/_utils/
-      icon: /assets/icons/obsidian-livesync.svg
+      icon: sh:obsidian
     - title: Openprinting CUPS Server
       url: https://192.168.50.2:631/
       allow-insecure: true
-      icon: mdi:printer
+      icon: /assets/icons/cups-service.svg
     - title: OpenSpeedTest
       url: http://storage-server.internal:3004/
       icon: sh:openspeedtest
