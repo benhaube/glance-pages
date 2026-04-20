@@ -54,6 +54,16 @@ theme:
   # will not be reflected until the browser cache is cleared (Ctrl+F5)
   custom-css-file: /assets/user.css
 
+auth:
+  secret-key: /0vnYLQFqGslEKS/J392VH9kmnQYxnGjdhcXhj+YzEMX+8d3IMHpbGDraZDDtm3vX/eKkx158XQxGRsDD7RD7A==
+  users:
+    admin:
+      password-hash: ${ADMIN_PW_HASH}
+    bhaube:
+      password-hash: ${BHAUBE_PW_HASH}
+    rpereira:
+      password-hash: ${RPEREIRA_PW_HASH}
+
 pages:
   # It's not necessary to create a new file for each page and include it, you can simply
   # put its contents here, though multiple pages are easier to manage when separated
