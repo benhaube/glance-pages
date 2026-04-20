@@ -148,10 +148,10 @@
         - title: Flathub
           url: https://flathub.org/en
           icon: si:flathub
-        - title: Github
+        - title: GitHub
           url: https://github.com/
           icon: si:github
-        - title: GitLab
+        - title: Gitlab
           url: https://gitlab.com/
           icon: si:gitlab
         - title: Google Play Store
