@@ -101,7 +101,7 @@
           icon: auto-invert sh:mozilla-vpn
         - title: Ring Dashboard
           url: https://account.ring.com/account/dashboard
-          icon: auto-invert sh:ring
+          icon: auto-invert sh:ring-dark
     - title: Shopping
       color: 37 100 50
       links:
