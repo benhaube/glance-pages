@@ -14,7 +14,7 @@ services:
     env_file: .env
     labels:
       glance.name: Glance
-      glance.icon: sh:glance
+      glance.icon: si:glance
       glance.url: http://<server-ip>:8580
       glance.description: Server Dashboard
       glance.id: glance
