@@ -92,7 +92,7 @@
       links:
         - title: Bitwarden
           url: https://vault.bitwarden.com
-          icon: si:bitwarden
+          icon: auto-invert sh:bitwarden-dark
         - title: Ente Auth
           url: https://auth.ente.io/credentials
           icon: auto-invert sh:ente-auth-dark
