@@ -7,7 +7,7 @@
       description: Lightweight server monitoring platform
       url: http://pi-server.internal:8090/
       id: beszel
-      icon: sh:beszel
+      icon: auto-invert sh:beszel-dark
     beszel-agent:
       name: Beszel Agent
       description: Lightweight agent for the Beszel monitoring platform
@@ -16,43 +16,28 @@
       name: Dockge
       description: A fancy, easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager
       url: http://pi-server.internal:5001
-      icon: sh:dockge
+      icon: auto-invert sh:dockge-dark
     f1_api:
       name: F1_API
       description: An API for Formula 1 stats
       parent: glance
-      icon: /assets/icons/f1.svg
+      icon: si:f1
     glances-glances-1:
       name: Glances
       description: Glances an Eye on your system
       url: http://pi-server.internal:61208
-      icon: sh:glances
+      icon: auto-invert sh:glances-dark
     homeassistant:
       name: Home Assistant
       description: Smarthome control panel
       url: http://pi-server.internal:8123
-      icon: sh:home-assistant
-      # hide: false
+      icon: si:homeassistant
     it-tools:
       name: IT-Tools
       description: Handy tools for developers
       url: http://pi-server.internal:8080
-      icon: di:it-tools-light
+      icon: auto-invert sh:it-tools-dark
       id: it-tools
-      # hide: false
-    nebula-sync:
-      name: Nebula-Sync
-      description: Synchronize Pi-hole configuration
-      icon: /assets/icons/pi-hole2.svg
-    portainer:
-      name: Portainer
-      id: portainer-ee
-      description: Container management platform
-      url: https://pi-server.internal:9443
-      icon: sh:portainer-pink
-    portainer_agent:
-      name: Portainer-Agent
-      parent: portainer-ee
     portracker:
       name: Portracker
       icon: auto-invert sh:portracker
@@ -60,7 +45,4 @@
       name: Uptime-Kuma
       description: Network service monitoring tool
       url: http://pi-server.internal:3001
-      icon: sh:uptime-kuma
-    ws-tcp-udp-bridge:
-      name: ws-tcp-udp-bridge
-      parent: it-tools
+      icon: auto-invert sh:uptime-kuma-dark
