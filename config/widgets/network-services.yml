@@ -29,7 +29,7 @@
       icon: sh:immich
     - title: Kacey (3D Printer)
       url: http://k1c-a71e.internal
-      icon: /assets/icons/creality-v2.svg
+      icon: /assets/icons/creality-v1.svg
     # - title: Mermaid Live Editor
     # url: http://storage-server.internal:8000
     # icon: https://avatars.githubusercontent.com/u/57169982?s=48&v=4
