@@ -4,70 +4,60 @@
   sites:
     - title: ASUS RT-BE92U
       url: https://asusrouter.internal:8443
-      icon: di:asus-router
+      icon: mdi:router-wireless
       allow-insecure: true
     - title: Cloudflare Tunnel
       url: http://storage-server.internal:14333/
-      icon: sh:cloudflare
+      icon: si:cloudflare
     - title: F1 Replay Timing
       url: http://storage-server.internal:3000
-      icon: /assets/icons/f1-replay-timing.svg
+      icon: auto-invert /assets/icons/f1-replay-timing.svg
     - title: Files (storage-server)
       url: http://storage-server.internal/modules/icewhale_files/
       icon: mdi:folder-account
-    # - title: Glances (pi-hole)
-    # url: http://pi-hole.internal:61208/
-    # icon: sh:glances
     - title: Glances (storage-server)
       url: http://storage-server.internal:61208/
       icon: auto-invert sh:glances-dark
     - title: Homebox
       url: http://storage-server.internal:3100/home
-      icon: sh:homebox
+      icon: auto-invert sh:homebox-dark
     - title: Immich
       url: http://storage-server.internal:2283
-      icon: sh:immich
+      icon: si:immich
     - title: Kacey (3D Printer)
       url: http://k1c-a71e.internal
-      icon: /assets/icons/creality-v1.svg
-    # - title: Mermaid Live Editor
-    # url: http://storage-server.internal:8000
-    # icon: https://avatars.githubusercontent.com/u/57169982?s=48&v=4
+      icon: auto-invert /assets/icons/creality-v1.svg
     - title: Network Documentation
       url: http://storage-server.internal:8080
-      icon: /assets/icons/network-documentation-portfolio.svg
+      icon: mdi:file-document-multiple
     - title: Obsidian LiveSync (CouchDB)
       url: http://storage-server.internal:5984/_utils/
-      icon: sh:obsidian
+      icon: si:obsidian
     - title: Openprinting CUPS Server
       url: https://192.168.50.2:631/
       allow-insecure: true
-      icon: /assets/icons/cups-service.svg
+      icon: mdi:printer
     - title: OpenSpeedTest
       url: http://storage-server.internal:3004/
-      icon: sh:openspeedtest
-    # - title: Pi-Hole DNS
-    # url: https://pi-hole.internal/admin
-    # allow-insecure: true
-    # icon: sh:pi-hole
+      icon: auto-invert sh:openspeedtest-dark
     - title: Portracker
       url: http://storage-server.internal:4999
       icon: auto-invert sh:portracker
     - title: Spoolman
       url: http://storage-server.internal:7912
-      icon: sh:spoolman
+      icon: auto-invert sh:spoolman-dark
     - title: Technitium DNS
       url: http://debian-vm.internal:5380
-      icon: sh:technitium
+      icon: auto-invert sh:technitium-dark
     - title: Terminal (storage-server)
       url: http://storage-server.internal:2222/
       icon: auto-invert si:gnubash
     - title: WireGuard Easy
       url: http://storage-server.internal:51821/
-      icon: /assets/icons/wireguard-rounded-square.svg
+      icon: si:wireguard
     - title: yt-dlp Web UI
       url: http://storage-server.internal:3033/
-      icon: sh:youtube-dl
+      icon: auto-invert sh:youtube-dl-dark
     - title: ZimaOS NAS
       url: http://storage-server.internal
       allow-insecure: true
