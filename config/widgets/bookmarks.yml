@@ -5,16 +5,16 @@
       links:
         - title: BGE
           url: https://www.bge.com/
-          icon: /assets/icons/exelon.svg
+          icon: auto-invert /assets/icons/exelon.svg
         - title: Discover Bank
           url: https://www.discover.com/online-banking/
           icon: auto-invert sh:discover-card-dark
         - title: Geico
           url: https://www.geico.com/
-          icon: /assets/icons/geico.svg
+          icon: mdi:shield-car
         - title: Resident Services
           url: https://liveatmillscrossing.securecafenet.com/residentservices/mills-crossing-townhomes-and-apartments/userlogin
-          icon: /assets/icons/rentcafe.png
+          icon: mdi:home-group
         - title: Xfinity
           url: https://www.xfinity.com/overview
           icon: auto-invert sh:xfinity
@@ -23,22 +23,22 @@
       links:
         - title: Fastmail
           url: https://app.fastmail.com
-          icon: sh:fastmail
+          icon: auto-invert sh:fastmail-dark
         - title: Gmail
           url: https://mail.google.com
-          icon: sh:gmail
+          icon: si:gmail
         - title: Thundermail
           url: https://www.thundermail.com/
-          icon: sh:thunderbird
+          icon: si:thunderbird
     - title: Entertainment
       color: 0 100 50
       links:
         - title: YouTube
           url: https://youtube.com
-          icon: sh:youtube
+          icon: si:youtube
         - title: YouTube Music
           url: https://music.youtube.com
-          icon: di:youtube-music
+          icon: si:youtubemusic
     - title: Learning
       color: 305 92 48
       links:
@@ -47,16 +47,16 @@
           icon: auto-invert /assets/icons/aci.png
         - title: CompTIA
           url: http://comptia.org/
-          icon: /assets/icons/comptia.svg
+          icon: si:comptia
     - title: Linux
       color: 202 72 73
       links:
         - title: Debian
           url: https://www.debian.org/
-          icon: sh:debian
+          icon: mdi:debian
         - title: Fedora Project
           url: https://fedoraproject.org//
-          icon: sh:fedora
+          icon: mdi:fedora
         - title: Fedora Docs
           url: https://docs.fedoraproject.org/en-US/docs/
           icon: mdi:file-document
@@ -65,7 +65,7 @@
           icon: mdi:forum
         - title: Red Hat
           url: https://www.redhat.com/en
-          icon: di:redhat-linux
+          icon: si:redhat
     - title: News
       color: 150 74 51
       links:
@@ -74,10 +74,10 @@
           icon: mdi:clock-time-nine-outline
         - title: Android Faithful
           url: https://www.androidfaithful.com/
-          icon: sh:android
+          icon: si:android
         - title: Google News
           url: http://news.google.com/
-          icon: sh:google-news
+          icon: si:googlenews
         - title: Ground News
           url: https://ground.news/
           icon: auto-invert /assets/icons/gn.svg
@@ -92,10 +92,10 @@
       links:
         - title: Bitwarden
           url: https://vault.bitwarden.com
-          icon: sh:bitwarden
+          icon: si:bitwarden
         - title: Ente Auth
           url: https://auth.ente.io/credentials
-          icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/ente-auth.png
+          icon: auto-invert sh:ente-auth-dark
         - title: Mozilla VPN
           url: https://www.mozilla.org/en-US/products/vpn/
           icon: auto-invert sh:mozilla-vpn
@@ -110,7 +110,7 @@
           icon: auto-invert sh:amazon-dark
         - title: Best Buy
           url: https://bestbuy.com
-          icon: /assets/icons/best-buy.svg
+          icon: mdi:tag
         - title: Curaleaf
           url: https://curaleaf.com
           icon: auto-invert /assets/icons/curaleaf.svg
@@ -123,40 +123,40 @@
       links:
         - title: Bluesky
           url: https://bsky.app
-          icon: sh:bluesky
+          icon: si:bluesky
         - title: Mastodon
           url: https://twit.social
-          icon: sh:mastodon
+          icon: si:mastodon
         - title: Patreon
           url: https://patreon.com
-          icon: auto-invert sh:patreon
+          icon: si:patreon
         - title: Reddit
           url: https://reddit.com
-          icon: sh:reddit
+          icon: si:reddit
         - title: X-Cancel
           url: https://xcancel.com/
-          icon: sh:twitter
+          icon: auto-invert sh:twitter-dark
     - title: Software
       color: 210 12 42
       links:
         - title: Docker Hub
           url: https://hub.docker.com/
-          icon: sh:docker
+          icon: si:docker
         - title: F-Droid
           url: https://f-droid.org/
-          icon: di:f-droid
+          icon: auto-invert sh:f-droid-dark
         - title: Flathub
           url: https://flathub.org/en
-          icon: auto-invert sh:flathub
+          icon: si:flathub
         - title: Github
           url: https://github.com/
-          icon: auto-invert sh:github
+          icon: si:github
         - title: GitLab
           url: https://gitlab.com/
-          icon: sh:gitlab
+          icon: si:gitlab
         - title: Google Play Store
           url: http://play.google.com/
-          icon: sh:google-play
+          icon: si:googleplay
     - title: Weather
       color: 22 100 48
       links:
@@ -165,4 +165,4 @@
           icon: si:accuweather
         - title: NOAA Storm Prediction Center
           url: https://www.spc.noaa.gov/
-          icon: mdi:weather-lightning-rainy
+          icon: mdi:weather-tornado
