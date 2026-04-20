@@ -1,0 +1,5 @@
+- type: dns-stats
+  title: Technitium DNS Stats
+  service: technitium
+  url: http://debian-vm.internal:5380/
+  token: ${TECHNITIUM_TOKEN}
