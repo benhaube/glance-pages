@@ -14,13 +14,13 @@
       icon: /assets/icons/f1-replay-timing.svg
     - title: Files (storage-server)
       url: http://storage-server.internal/modules/icewhale_files/
-      icon: mdi:folder-open
+      icon: mdi:folder-account
     # - title: Glances (pi-hole)
     # url: http://pi-hole.internal:61208/
     # icon: sh:glances
     - title: Glances (storage-server)
       url: http://storage-server.internal:61208/
-      icon: sh:glances
+      icon: auto-invert sh:glances-dark
     - title: Homebox
       url: http://storage-server.internal:3100/home
       icon: sh:homebox
