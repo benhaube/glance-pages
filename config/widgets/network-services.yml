@@ -1,6 +1,6 @@
 - type: monitor
   cache: 1m
-  title: Local Network Services.
+  title: Local Network Services
   title-icon: mdi:lan
   sites:
     - title: ASUS RT-BE92U

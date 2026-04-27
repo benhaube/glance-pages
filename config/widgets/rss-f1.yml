@@ -1,6 +1,6 @@
 - type: rss
   title: News Feed
-  title-icon: auto-invert si:googlenews
+  title-icon: mdi:racing-helmet
   style: vertical-list
   limit: 15
   collapse-after: 5
