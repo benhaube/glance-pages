@@ -20,17 +20,6 @@ theme:
       primary-color: 321 100 71
       positive-color: 165 78 51
       negative-color: 360 100 71
-    Catppuccin-Mocha:
-      background-color: 240 21 15
-      contrast-multiplier: 1.2
-      primary-color: 217 92 83
-      positive-color: 115 54 76
-      negative-color: 347 70 65
-    Gruvbox-Dark:
-      background-color: 0 0 16
-      primary-color: 43 59 81
-      positive-color: 61 66 44
-      negative-color: 6 96 59
     Formula-One:
       background-color: 0 0 5
       contrast-multiplier: 1.5
