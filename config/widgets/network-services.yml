@@ -49,9 +49,9 @@
     - title: Technitium DNS
       url: http://debian-vm.internal:5380
       icon: auto-invert sh:technitium-dark
-    - title: Terminal (storage-server)
+    - title: ttydBridge (storage-server)
       url: http://storage-server.internal:2222/
-      icon: auto-invert si:gnubash
+      icon: mdi:console
     - title: WireGuard Easy
       url: http://storage-server.internal:51821/
       icon: si:wireguard
