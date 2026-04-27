@@ -1,5 +1,6 @@
 - type: custom-api
   title: WireGuard Clients
+  title-icon: mdi:vpn
   cache: 5m
   url: http://${WG_EASY_URL}/api/client
   headers:

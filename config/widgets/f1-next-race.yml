@@ -1,5 +1,6 @@
 - type: custom-api
   title: Next Race
+  title-icon: auto-invert si:f1
   cache: 1h
   url: http://${F1_API_URL}:4463/f1/next_race/
   template: |

@@ -1,5 +1,6 @@
 - type: rss
   title: News Feed
+  title-icon: auto-invert si:googlenews
   style: vertical-list
   limit: 15
   collapse-after: 5

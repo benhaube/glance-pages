@@ -1,6 +1,7 @@
 - type: group
   widgets:
     - type: reddit
+      title-icon: auto-invert si:f1
       style: vertical-list
       subreddit: Formula1
       show-flairs: true
@@ -9,6 +10,7 @@
       show-thumbnails: true
 
     - type: reddit
+      title-icon: mdi:newspaper
       style: vertical-list
       subreddit: F1News
       show-flairs: true
@@ -17,6 +19,7 @@
       show-thumbnails: true
 
     - type: reddit
+      title-icon: auto-invert si:f1
       style: vertical-list
       subreddit: F1TV
       show-flairs: true
@@ -25,6 +28,7 @@
       show-thumbnails: true
 
     - type: reddit
+      title-icon: mdi:wrench
       style: vertical-list
       subreddit: F1Technical
       show-flairs: true
@@ -33,6 +37,7 @@
       show-thumbnails: true
 
     - type: reddit
+      title-icon: mdi:forum
       style: vertical-list
       subreddit: F1Discussions
       show-flairs: true

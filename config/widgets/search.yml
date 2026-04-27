@@ -1,4 +1,5 @@
 - type: search
+  title-icon: mdi:magnify
   search-engine: duckduckgo
   bangs:
     - title: YouTube

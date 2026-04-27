@@ -1,5 +1,6 @@
 - type: custom-api
   title: Air Quality
+  title-icon: mdi:weather-windy
   cache: 10m
   url: https://api.waqi.info/feed/@8700/?token=${AQI_TOKEN}
   template: |

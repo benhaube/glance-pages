@@ -1,5 +1,6 @@
 - type: custom-api
   title: Forecast
+  title-icon: mdi:weather-sunny
   body-type: string
   cache: 1h
   options:

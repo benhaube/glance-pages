@@ -1,5 +1,6 @@
 - type: custom-api
   title: WAN
+  title-icon: mdi:wan
   cache: 10m
   url: ${HASS_URL}/api/states
   headers:

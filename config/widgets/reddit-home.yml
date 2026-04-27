@@ -1,6 +1,7 @@
 - type: group
   widgets:
     - type: reddit
+      title-icon: mdi:android
       style: vertical-list
       subreddit: android
       show-flairs: true
@@ -9,6 +10,7 @@
       show-thumbnails: true
 
     - type: reddit
+      title-icon: mdi:fedora
       style: vertical-list
       subreddit: fedora
       show-flairs: true
@@ -17,6 +19,7 @@
       show-thumbnails: true
 
     - type: reddit
+      title-icon: mdi:firefox
       style: vertical-list
       subreddit: firefox
       show-flairs: true
@@ -25,6 +28,7 @@
       show-thumbnails: true
 
     - type: reddit
+      title-icon: auto-invert si:kde
       style: vertical-list
       subreddit: kde
       show-flairs: true
@@ -33,6 +37,7 @@
       show-thumbnails: true
 
     - type: reddit
+      title-icon: mdi:linux
       style: vertical-list
       subreddit: linux
       show-flairs: true
@@ -41,6 +46,7 @@
       show-thumbnails: true
 
     - type: reddit
+      title-icon: mdi:pi-hole
       style: vertical-list
       subreddit: pihole
       show-flairs: true
@@ -49,6 +55,7 @@
       show-thumbnails: true
 
     - type: reddit
+      title-icon: mdi:twitter
       style: vertical-list
       subreddit: whitepeopletwitter
       show-flairs: true

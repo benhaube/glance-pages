@@ -1,6 +1,8 @@
 - type: split-column
   widgets:
     - type: hacker-news
+      title-icon: mdi:newspaper
       collapse-after: 3
     - type: lobsters
+      title-icon: mdi:newspaper
       collapse-after: 3

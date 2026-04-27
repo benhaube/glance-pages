@@ -1,5 +1,6 @@
 - type: docker-containers
   title: Docker Containers (pi-server)
+  title-icon: mdi:docker
   hide-by-default: false
   containers:
     beszel:

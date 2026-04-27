@@ -1,5 +1,6 @@
 - type: custom-api
   title: Astronomy Picture of the Day
+  title-icon: mdi:creation
   cache: 1d
   url: https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}
   headers:

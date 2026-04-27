@@ -1,5 +1,6 @@
 - type: custom-api
   title: Constructors Standings
+  title-icon: mdi:trophy
   cache: 5m
   url: http://${F1_API_URL}:4463/f1/constructors_standings/
   template: |

@@ -1,5 +1,6 @@
 - type: custom-api
   title: Random Fact
+  title-icon: mdi:dice-multiple
   cache: 3h
   url: https://uselessfacts.jsph.pl/api/v2/facts/random
   template: |

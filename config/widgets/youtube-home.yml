@@ -1,5 +1,6 @@
 - type: videos
   title: YouTube
+  title-icon: mdi:youtube
   style: grid-cards
   channels:
     - UCldfgbzNILYZA4dmDt4Cd6A # Secular Talk

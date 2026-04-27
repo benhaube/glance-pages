@@ -1,5 +1,6 @@
 - type: markets
   hide-header: true
+  title-icon: mdi:finance
   markets:
     - symbol: SPY
       name: S&P 500

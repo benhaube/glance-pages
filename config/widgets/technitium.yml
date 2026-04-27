@@ -1,5 +1,6 @@
 - type: custom-api
   title: Technitium DNS Stats
+  title-icon: mdi:dns
   cache: 1h
   subrequests:
     update-check:

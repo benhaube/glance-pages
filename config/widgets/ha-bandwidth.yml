@@ -1,5 +1,6 @@
 - type: custom-api
   title: Bandwidth
+  title-icon: mdi:speedometer
   cache: 10m
   url: ${HASS_URL}/api/states
   headers:

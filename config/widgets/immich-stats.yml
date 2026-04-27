@@ -1,5 +1,6 @@
 - type: custom-api
   title: Immich Stats
+  title-icon: auto-invert si:immich
   hide-header: false
   cache: 10m
   url: ${IMMICH_URL}/api/server/statistics

@@ -1,5 +1,6 @@
 - type: weather
   title: Weather
+  title-icon: mdi:weather-sunny
   location: Reisterstown, Maryland, United States
   units: imperial # alternatively "metric"
   hour-format: 12h # alternatively "24h"

@@ -1,5 +1,6 @@
 - type: custom-api
   title: Server Stats
+  title-icon: mdi:server
   cache: 5m
   options:
     base-url: ${BESZEL_URL}

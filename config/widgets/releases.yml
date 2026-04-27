@@ -1,4 +1,5 @@
 - type: releases
+  title-icon: mdi:git
   cache: 1d
   show-source-icon: true
   limit: 50
