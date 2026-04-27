@@ -25,8 +25,8 @@
         - type: split-column
           widgets:
 
-          - $include: /app/config/widgets/dns-stats.yml
-          # - $include: /app/config/widgets/technitium.yml
+          # - $include: /app/config/widgets/dns-stats.yml
+          - $include: /app/config/widgets/technitium.yml
           - $include: /app/config/widgets/immich-stats.yml
 
     - size: small
