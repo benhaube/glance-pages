@@ -3,8 +3,8 @@ server:
   assets-path: /app/assets
 
 # branding:
-# app-icon-url: /assets/icons/glance.png
-# hide-footer: true
+  # app-icon-url: /assets/icons/glance.png
+  # hide-footer: true
 
 theme:
   # This will be the default theme
