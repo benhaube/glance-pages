@@ -1,0 +1,76 @@
+server:
+  port: 8580
+  assets-path: /app/assets
+
+branding:
+  app-name: Dashboard
+  logo-text: G
+  logo-url: /assets/glance.png
+  app-icon-url: /assets/glance.png
+  favicon-url: /assets/glance.svg
+  # hide-footer: true
+
+theme:
+  # This will be the default theme
+  light: true
+  background-color: 0 0 95
+  primary-color: 0 0 10
+  negative-color: 0 90 50
+
+  presets:
+    Neon-Pink:
+      background-color: 240 27 11
+      contrast-multiplier: 1.5
+      primary-color: 321 100 71
+      positive-color: 165 78 51
+      negative-color: 360 100 71
+    Catppuccin-Mocha:
+      background-color: 240 21 15
+      contrast-multiplier: 1.2
+      primary-color: 217 92 83
+      positive-color: 115 54 76
+      negative-color: 347 70 65
+    Gruvbox-Dark:
+      background-color: 0 0 16
+      primary-color: 43 59 81
+      positive-color: 61 66 44
+      negative-color: 6 96 59
+    Formula-One:
+      background-color: 0 0 5
+      contrast-multiplier: 1.5
+      primary-color: 2 100 44
+      positive-color: 112 82 46
+      negative-color: 2 100 44
+    Material-Purple-Enhanced:
+      background-color: 227 46 16
+      contrast-multiplier: 1.3
+      primary-color: 233 76 85
+      positive-color: 115 54 76
+      negative-color: 347 70 65
+    Material-Dark-Forest:
+      background-color: 187 100 8
+      contrast-multiplier: 1.3
+      primary-color: 188 54 83
+      positive-color: 115 54 76
+      negative-color: 347 70 65
+
+  # Note: assets are cached by the browser, changes to the CSS file
+  # will not be reflected until the browser cache is cleared (Ctrl+F5)
+  custom-css-file: /assets/user.css
+
+auth:
+  secret-key: /0vnYLQFqGslEKS/J392VH9kmnQYxnGjdhcXhj+YzEMX+8d3IMHpbGDraZDDtm3vX/eKkx158XQxGRsDD7RD7A==
+  users:
+    admin:
+      password-hash: ${ADMIN_PW_HASH}
+    bhaube:
+      password-hash: ${BHAUBE_PW_HASH}
+    rpereira:
+      password-hash: ${RPEREIRA_PW_HASH}
+
+pages:
+  # It's not necessary to create a new file for each page and include it, you can simply
+  # put its contents here, though multiple pages are easier to manage when separated
+  - $include: pages/home.yml
+  - $include: pages/network.yml
+  - $include: pages/formula1.yml
