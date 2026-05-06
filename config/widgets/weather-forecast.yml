@@ -6,7 +6,7 @@
   options:
     location: ${WEATHER_LOCATION}
     temp_unit: "fahrenheit"
-    weekend_color: "#34363D"
+    # weekend_color: "#34363D"
     color_clear: "#FFA500"
     color_partly: "#EBE387"
     color_cloud: "#A9A9A9"
