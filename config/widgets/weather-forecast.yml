@@ -20,7 +20,7 @@
     color_red: "#F08C46"
     color_yellow: "#F0F046"
     color_blue: "#46F0F0"
-    color_white: "#FFFFFF"
+    # color_white: "#FFFFFF"
   template: |
     {{/* THESE VALUES CAN BE CHANGED BY ADDING AN ENTRY TO THE OPTIONS SECTION */}}
       {{ $temp_unit := .Options.StringOr "temp_unit" "celsius" }}
