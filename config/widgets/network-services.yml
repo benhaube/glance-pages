@@ -19,6 +19,9 @@
     - title: Glances (storage-server)
       url: http://storage-server.internal:61208/
       icon: auto-invert sh:glances-dark
+    - title: Gotify
+      url: https://gotify.rac3r4life.online
+      icon: auto-invert /assets/icons/gotify-notification.svg
     - title: Homebox
       url: http://storage-server.internal:3100/home
       icon: auto-invert sh:homebox-dark
