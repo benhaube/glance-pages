@@ -16,6 +16,9 @@
     - title: Files (storage-server)
       url: http://storage-server.internal/modules/icewhale_files/
       icon: mdi:folder-account
+    - title: Gitea
+      url: http://storage-server.internal:3080
+      icon: auto-invert sh:gitea-dark
     - title: Glances (storage-server)
       url: http://storage-server.internal:61208/
       icon: auto-invert sh:glances-dark
