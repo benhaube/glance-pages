@@ -65,6 +65,9 @@
     - title: yt-dlp Web UI
       url: http://storage-server.internal:3033/
       icon: auto-invert sh:youtube-dl-dark
+    - title: Zima Cron
+      url: http://storage-server.internal/modules/cron/
+      icon: mdi:progress-clock
     - title: ZimaOS NAS
       url: http://storage-server.internal
       allow-insecure: true
