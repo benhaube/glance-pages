@@ -5,27 +5,27 @@
   containers:
     beszel:
       name: Beszel Hub
-      description: Lightweight server monitoring platform
+      description: Server monitoring
       url: http://pi-server.internal:8090/
       id: beszel
       icon: auto-invert sh:beszel-dark
     beszel-agent:
-      name: Beszel Agent
-      description: Lightweight agent for the Beszel monitoring platform
       parent: beszel
+    cloudflare-tunnel:
+      name: Cloudflare Tunnel
+      description: Reverse-Proxy Server
+      url: https://dash.cloudflare.com/bbccc041576926c60fba0b3a78075ca6/tunnels
+      icon: si:cloudflare
     dockge-dockge-1:
       name: Dockge
-      description: A fancy, easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager
+      description: Docker container management
       url: http://pi-server.internal:5001
       icon: auto-invert sh:dockge-dark
     f1_api:
-      name: F1_API
-      description: An API for Formula 1 stats
       parent: glance
-      icon: si:f1
     glances-glances-1:
       name: Glances
-      description: Glances an Eye on your system
+      description: An Eye on Your System
       url: http://pi-server.internal:61208
       icon: auto-invert sh:glances-dark
     homeassistant:
@@ -39,11 +39,14 @@
       url: http://pi-server.internal:8080
       icon: auto-invert sh:it-tools-dark
       id: it-tools
+    network-utils-ws:
+      parent: it-tools
     portracker:
       name: Portracker
       icon: auto-invert sh:portracker
+      description: Port Monitoring & Discovery
     uptime-kuma:
       name: Uptime-Kuma
-      description: Network service monitoring tool
+      description: A Fancy Monitoring Tool
       url: http://pi-server.internal:3001
       icon: auto-invert sh:uptime-kuma-dark
