@@ -13,13 +13,10 @@
     - title: F1 Replay Timing
       url: http://storage-server.internal:3000
       icon: auto-invert /assets/icons/f1-replay-timing.svg
-    - title: Files (storage-server)
-      url: http://storage-server.internal/modules/icewhale_files/
-      icon: mdi:folder-account
     - title: Gitea
       url: http://storage-server.internal:3080
       icon: auto-invert sh:gitea-dark
-    - title: Glances (storage-server)
+    - title: Glances (ZimaOS NAS)
       url: http://storage-server.internal:61208/
       icon: auto-invert sh:glances-dark
     - title: Gotify
@@ -37,7 +34,7 @@
     - title: Network Documentation
       url: http://storage-server.internal:8080
       icon: mdi:file-document-multiple
-    - title: Obsidian LiveSync (CouchDB)
+    - title: Obsidian LiveSync
       url: http://storage-server.internal:5984/_utils/
       icon: si:obsidian
     - title: Openprinting CUPS Server
@@ -53,16 +50,16 @@
     - title: Spoolman
       url: http://storage-server.internal:7912
       icon: auto-invert sh:spoolman-dark
-    - title: Technitium DNS
+    - title: Technitium DNS Server
       url: http://debian-vm.internal:5380
       icon: auto-invert sh:technitium-dark
-    - title: ttydBridge (storage-server)
+    - title: ttydBridge
       url: http://storage-server.internal:2222/
       icon: mdi:console
-    - title: WireGuard Easy
+    - title: WireGuard
       url: http://storage-server.internal:51821/
       icon: si:wireguard
-    - title: yt-dlp Web UI
+    - title: yt-dlp-webUI
       url: http://storage-server.internal:3033/
       icon: auto-invert sh:youtube-dl-dark
     - title: Zima Cron
@@ -72,6 +69,9 @@
       url: http://storage-server.internal
       allow-insecure: true
       icon: auto-invert sh:zimaos-dark
-    - title: ZVM (storage-server)
+    - title: ZimaOS NAS Files
+      url: http://storage-server.internal/modules/icewhale_files/
+      icon: mdi:folder-open
+    - title: ZimaOS NAS VMs
       url: http://storage-server.internal/modules/zimaos_zvm/
-      icon: auto-invert sh:qemu-dark
+      icon: mdi:network-pos
