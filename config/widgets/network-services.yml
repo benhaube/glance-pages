@@ -53,6 +53,7 @@
     - title: Technitium DNS Server
       url: https://debian-vm.internal:53443
       icon: auto-invert sh:technitium-dark
+      allow-insecure: true
     - title: ttydBridge
       url: http://storage-server.internal:2222/
       icon: mdi:console
