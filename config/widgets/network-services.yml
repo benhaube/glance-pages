@@ -51,7 +51,7 @@
       url: http://storage-server.internal:7912
       icon: auto-invert sh:spoolman-dark
     - title: Technitium DNS Server
-      url: http://debian-vm.internal:5380
+      url: https://debian-vm.internal:5380
       icon: auto-invert sh:technitium-dark
     - title: ttydBridge
       url: http://storage-server.internal:2222/
