@@ -2,6 +2,7 @@
   title: Technitium DNS Stats
   title-icon: mdi:dns
   cache: 1h
+  allow-insecure: true
   subrequests:
     update-check:
       url: http://${TECHNITIUM_IP_PORT}/api/user/checkForUpdate?token=${TECHNITIUM_TOKEN}
