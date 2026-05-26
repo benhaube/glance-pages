@@ -63,6 +63,9 @@
     - title: yt-dlp-webUI
       url: http://storage-server.internal:3033/
       icon: auto-invert sh:youtube-dl-dark
+    - title: ZFW Firewall
+      url: http://storage-server.internal/modules/zfw/index.html
+      icon: mdi:wall-fire
     - title: Zima Cron
       url: http://storage-server.internal/modules/cron/
       icon: mdi:progress-clock
