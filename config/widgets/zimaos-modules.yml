@@ -1,0 +1,29 @@
+- type: monitor
+  cache: 1m
+  title: ZimaOS Modules
+  title-icon: auto-invert sh:zimaos-dark
+  sites:
+    - title: IceWhale Community
+      url: https://community.zimaspace.com/
+      icon: auto-invert /assets/icons/icewhale.svg
+    - title: PeerDrop
+      url: http://storage-server.internal/modules/icewhale_peerdrop/
+      icon: auto-invert sh:snapdrop-dark
+    - title: ZimaOS Dashboard
+      url: http://storage-server.internal
+      icon: auto-invert sh:zimaos-dark
+    - title: Zima Cron
+      url: http://storage-server.internal/modules/cron/
+      icon: mdi:progress-clock
+    - title: Zima Firewall
+      url: http://storage-server.internal/modules/zfw/index.html
+      icon: mdi:wall-fire
+    - title: Zima Files
+      url: http://storage-server.internal/modules/icewhale_files/
+      icon: mdi:folder-open
+    - title: Zima VM
+      url: http://storage-server.internal/modules/zimaos_zvm/
+      icon: mdi:disc
+    # - title: ttydBridge
+      # url: http://storage-server.internal:2222/
+      # icon: mdi:console
