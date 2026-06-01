@@ -23,7 +23,7 @@
       icon: mdi:folder-open
     - title: Zima VM
       url: http://storage-server.internal/modules/zimaos_zvm/
-      icon: mdi:disc
+      icon: auto-invert /assets/icons/stacks.svg
     # - title: ttydBridge
       # url: http://storage-server.internal:2222/
       # icon: mdi:console
