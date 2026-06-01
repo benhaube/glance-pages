@@ -29,7 +29,7 @@
       url: http://storage-server.internal:2283
       icon: si:immich
     - title: Kacey (3D Printer)
-      url: http://k1c-a71e.internal
+      url: http://kacey.internal
       icon: auto-invert /assets/icons/creality-v1.svg
     - title: Network Documentation
       url: http://storage-server.internal:8080
