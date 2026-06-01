@@ -54,28 +54,9 @@
       url: https://debian-vm.internal:53443
       icon: auto-invert sh:technitium-dark
       allow-insecure: true
-    # - title: ttydBridge
-      # url: http://storage-server.internal:2222/
-      # icon: mdi:console
     - title: WireGuard
       url: http://storage-server.internal:51821/
       icon: si:wireguard
     - title: yt-dlp-webUI
       url: http://storage-server.internal:3033/
       icon: auto-invert sh:youtube-dl-dark
-    - title: ZFW Firewall
-      url: http://storage-server.internal/modules/zfw/index.html
-      icon: mdi:wall-fire
-    - title: Zima Cron
-      url: http://storage-server.internal/modules/cron/
-      icon: mdi:progress-clock
-    - title: ZimaOS NAS
-      url: http://storage-server.internal
-      allow-insecure: true
-      icon: auto-invert sh:zimaos-dark
-    - title: ZimaOS NAS Files
-      url: http://storage-server.internal/modules/icewhale_files/
-      icon: mdi:folder-open
-    - title: ZimaOS NAS VMs
-      url: http://storage-server.internal/modules/zimaos_zvm/
-      icon: mdi:network-pos
