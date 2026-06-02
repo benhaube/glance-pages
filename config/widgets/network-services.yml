@@ -34,9 +34,12 @@
     - title: Network Documentation
       url: http://storage-server.internal:8080
       icon: mdi:file-document-multiple
-    # - title: Obsidian LiveSync
-      # url: http://storage-server.internal:5984/_utils/
-      # icon: si:obsidian
+    - title: Obsidian LiveSync
+      url: http://storage-server.internal:5984/_utils/
+      basic-auth:
+        username: ${VAULT_USER}
+        password: ${VAULT_PW}
+      icon: si:obsidian
     - title: Openprinting CUPS Server
       url: https://192.168.50.2:631/
       allow-insecure: true
