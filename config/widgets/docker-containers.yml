@@ -20,14 +20,14 @@
       name: Dockge
       description: Docker container management
       url: http://pi-server.internal:5001
-      icon: auto-invert sh:dockge-dark
+      icon: auto-invert /assets/icons/dockge.svg
     f1_api:
       parent: glance
     glances-glances-1:
       name: Glances
       description: An Eye on Your System
       url: http://pi-server.internal:61208
-      icon: auto-invert sh:glances-dark
+      icon: auto-invert /assets/icons/glances.svg
     homeassistant:
       name: Home Assistant
       description: Smarthome control panel
@@ -49,4 +49,4 @@
       name: Uptime-Kuma
       description: A Fancy Monitoring Tool
       url: http://pi-server.internal:3001
-      icon: auto-invert sh:uptime-kuma-dark
+      icon: auto-invert /assets/icons/uptime-kuma.svg
