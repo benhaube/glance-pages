@@ -5,7 +5,7 @@
   sites:
     - title: ASUS RT-BE92U
       url: https://asusrouter.internal:8443
-      icon: mdi:router-wireless
+      icon: auto-invert /assets/icons/router.svg
       allow-insecure: true
     - title: Cloudflare Tunnel
       url: http://storage-server.internal:14333/
@@ -33,7 +33,7 @@
       icon: auto-invert /assets/icons/creality-v1.svg
     - title: Network Documentation
       url: http://storage-server.internal:8080
-      icon: mdi:file-document-multiple
+      icon: auto-invert /assets/icons/network-documentation-portfolio.svg
     - title: Obsidian LiveSync
       url: http://storage-server.internal:5984/_utils/
       basic-auth:
@@ -43,7 +43,7 @@
     - title: Openprinting CUPS Server
       url: https://192.168.50.2:631/
       allow-insecure: true
-      icon: mdi:printer
+      icon: auto-invert /assets/icons/printer.svg
     - title: OpenSpeedTest
       url: http://storage-server.internal:3004/
       icon: auto-invert sh:openspeedtest-dark

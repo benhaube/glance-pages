@@ -14,13 +14,13 @@
       icon: auto-invert sh:zimaos-dark
     - title: Zima Cron
       url: http://storage-server.internal/modules/cron/
-      icon: mdi:progress-clock
+      icon: auto-invert /assets/icons/cron.svg
     - title: Zima Firewall
       url: http://storage-server.internal/modules/zfw/index.html
-      icon: mdi:wall-fire
+      icon: auto-invert /assets/icons/firewall.svg
     - title: Zima Files
       url: http://storage-server.internal/modules/icewhale_files/
-      icon: mdi:folder-open
+      icon: auto-invert /assets/icons/folder-open.svg
     - title: Zima VM
       url: http://storage-server.internal/modules/zimaos_zvm/
       icon: auto-invert /assets/icons/stacks.svg
