@@ -31,6 +31,9 @@
     - title: Kacey (3D Printer)
       url: http://kacey.internal
       icon: auto-invert /assets/icons/creality-v1.svg
+    - title: NetAlertX
+      url: http://storage-server.internal:20211
+      icon: auto-invert sh:netalertx
     - title: Network Documentation
       url: http://storage-server.internal:8080
       icon: auto-invert /assets/icons/network-documentation-portfolio.svg
@@ -57,9 +60,6 @@
       url: https://debian-vm.internal:53443
       icon: auto-invert sh:technitium-dark
       allow-insecure: true
-    - title: WireGuard
-      url: http://storage-server.internal:51821/
-      icon: si:wireguard
     - title: yt-dlp-webUI
       url: http://storage-server.internal:3033/
       icon: auto-invert sh:youtube-dl-dark
