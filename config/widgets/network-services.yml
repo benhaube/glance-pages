@@ -33,7 +33,7 @@
       icon: auto-invert /assets/icons/creality-v1.svg
     - title: NetAlertX
       url: http://storage-server.internal:20211
-      icon: auto-invert sh:netalertx
+      icon: auto-invert sh:netalertx-dark
     - title: Network Documentation
       url: http://storage-server.internal:8080
       icon: auto-invert /assets/icons/network-documentation-portfolio.svg
