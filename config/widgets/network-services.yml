@@ -11,7 +11,7 @@
       url: http://storage-server.internal:14333/
       icon: si:cloudflare
     - title: F1 Replay Timing
-      url: http://storage-server.internal:3000
+      url: http://storage-server.internal:8000
       icon: auto-invert /assets/icons/f1-replay-timing.svg
     - title: Gitea
       url: http://storage-server.internal:3080
