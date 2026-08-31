@@ -7,8 +7,8 @@
       url: https://asusrouter.internal:8443
       icon: auto-invert /assets/icons/router.svg
       allow-insecure: true
-    - title: Cloudflare Tunnel
-      url: http://storage-server.internal:14333/
+    - title: Cloudflare Access
+      url: https://benhaube.cloudflareaccess.com/#/Launcher
       icon: si:cloudflare
     - title: F1 Replay Timing
       url: http://storage-server.internal:8000
