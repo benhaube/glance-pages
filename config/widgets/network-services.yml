@@ -9,7 +9,10 @@
       allow-insecure: true
     - title: Cloudflare Access
       url: https://benhaube.cloudflareaccess.com/#/Launcher
-      icon: si:cloudflare
+      icon: auto-invert sh:cloudflare-dark
+    - title: Cloudflare Zero-Trust
+      url: https://dash.cloudflare.com/login
+      icon: auto-invert sh:cloudflare-zero-trust-dark
     - title: F1 Replay Timing
       url: http://storage-server.internal:8000
       icon: auto-invert /assets/icons/f1-replay-timing.svg
