@@ -30,7 +30,7 @@
     - title: Gitea
       description: Git With a Cup of Tea
       url: http://storage-server.internal:3080
-      icon: auto-invert sh:gitea-dark
+      icon: auto-invert sh:git-dark
     - title: Glances (ZimaOS NAS)
       description: An Eye on Your System
       url: http://storage-server.internal:61208/
