@@ -28,6 +28,11 @@
       description: An Eye on Your System
       url: http://pi-server.internal:61208
       icon: auto-invert /assets/icons/glances.svg
+    globalping-probe:
+      name: Globalping Probe
+      description: Distributed Network of Probes
+      url: https://dash.globalping.io/
+      icon: auto-invert /assets/icons/globalping.svg
     homeassistant:
       name: Home Assistant
       description: Smarthome control panel
