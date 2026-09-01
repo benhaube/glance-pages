@@ -4,15 +4,16 @@
   title-icon: mdi:lan
   sites:
     - title: ASUS RT-BE92U
-      description: Asus router settings web UI
+      description: Asus Router Web UI
       url: https://asusrouter.internal:8443
       icon: auto-invert /assets/icons/router.svg
       allow-insecure: true
     - title: Cloudflare Access
-      description: Cloudflare application launcher for self-hosted services
+      description: Self-hosted App Launcher
       url: https://benhaube.cloudflareaccess.com/#/Launcher
       icon: auto-invert sh:cloudflare-dark
     - title: Cloudflare Zero-Trust
+      description: Account Dashboard
       url: https://dash.cloudflare.com
       alt-status-codes:
         - 403
