@@ -1,5 +1,5 @@
 - type: releases
-  title-icon: mdi:git
+  title-icon: auto-invert /assets/lucide/git-commit-vertical.svg
   cache: 1d
   show-source-icon: true
   limit: 50

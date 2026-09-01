@@ -1,6 +1,6 @@
 - type: custom-api
   title: Astronomy Picture of the Day
-  title-icon: mdi:creation
+  title-icon: auto-invert /assets/lucide/planet.svg
   cache: 1d
   url: https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}
   headers:

@@ -1,6 +1,6 @@
 - type: weather
   title: Weather
-  title-icon: mdi:weather-lightning-rainy
+  title-icon: auto-invert /assets/lucide/cloud-lightning.svg
   location: Reisterstown, Maryland, United States
   units: imperial # alternatively "metric"
   hour-format: 12h # alternatively "24h"

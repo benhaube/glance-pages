@@ -1,6 +1,6 @@
 - type: custom-api
   title: Last Race Results
-  title-icon: mdi:flag-checkered
+  title-icon: auto-invert /assets/lucide/flag.svg
   cache: 1d
   url: https://f1api.dev/api/current/last/race
   template: |

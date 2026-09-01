@@ -1,6 +1,6 @@
 - type: custom-api
   title: Technitium DNS Stats
-  title-icon: mdi:dns
+  title-icon: auto-invert /assets/lucide/activity.svg
   cache: 1h
   allow-insecure: true
   subrequests:

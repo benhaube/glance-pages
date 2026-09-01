@@ -1,8 +1,8 @@
 - type: split-column
   widgets:
     - type: hacker-news
-      title-icon: mdi:newspaper
+      title-icon: auto-invert /assets/lucide/newspaper.svg
       collapse-after: 3
     - type: lobsters
-      title-icon: mdi:newspaper
+      title-icon: auto-invert /assets/lucide/newspaper.svg
       collapse-after: 3

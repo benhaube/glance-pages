@@ -1,7 +1,7 @@
 - type: monitor
   cache: 1m
   title: Local Network Services
-  title-icon: mdi:lan
+  title-icon: auto-invert /assets/lucide/network.svg
   sites:
     - title: ASUS RT-BE92U
       description: Asus Router Web-UI

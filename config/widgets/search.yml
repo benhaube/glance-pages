@@ -1,5 +1,5 @@
 - type: search
-  title-icon: mdi:magnify
+  title-icon: auto-invert /assets/lucide/search.svg
   search-engine: duckduckgo
   bangs:
     - title: YouTube

@@ -1,6 +1,6 @@
 - type: custom-api
   title: Bandwidth
-  title-icon: mdi:speedometer
+  title-icon: auto-invert /assets/lucide/gauge.svg
   cache: 10m
   url: ${HASS_URL}/api/states
   headers:

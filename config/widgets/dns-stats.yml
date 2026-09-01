@@ -1,6 +1,6 @@
 - type: dns-stats
   title: Technitium DNS Stats
-  title-icon: mdi:dns
+  title-icon: auto-invert /assets/lucide/activity.svg
   service: technitium
   url: http://debian-vm.internal:5380/
   token: ${TECHNITIUM_TOKEN}

@@ -1,5 +1,5 @@
 - type: bookmarks
-  title-icon: mdi:bookmark
+  title-icon: auto-invert /assets/lucide/bookmark.svg
   groups:
     - title: Bills
       color: 23 100 50

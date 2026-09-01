@@ -1,6 +1,6 @@
 - type: rss
   title: News Feed
-  title-icon: auto-invert si:googlenews
+  title-icon: auto-invert /assets/lucide/newspaper.svg
   style: detailed-list
   limit: 10
   collapse-after: 3

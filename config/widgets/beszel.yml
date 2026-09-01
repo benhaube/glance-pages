@@ -1,6 +1,6 @@
 - type: custom-api
   title: Server Stats
-  title-icon: mdi:server
+  title-icon: auto-invert /assets/lucide/server.svg
   cache: 5m
   options:
     base-url: ${BESZEL_URL}
