@@ -4,7 +4,7 @@
   title-icon: mdi:lan
   sites:
     - title: ASUS RT-BE92U
-      description: Asus Router Web UI
+      description: Asus Router Web-UI
       url: https://asusrouter.internal:8443
       icon: auto-invert /assets/icons/router.svg
       allow-insecure: true
@@ -18,56 +18,72 @@
       alt-status-codes:
         - 403
       icon: auto-invert sh:cloudflare-zero-trust-dark
+    - title: CUPS
+      description: Open Print Server
+      url: https://192.168.50.2:631/
+      allow-insecure: true
+      icon: auto-invert /assets/icons/printer.svg
     - title: F1 Replay Timing
+      description: All of the Data
       url: http://storage-server.internal:8000
       icon: auto-invert /assets/icons/f1-replay-timing.svg
     - title: Gitea
+      description: Git With a Cup of Tea
       url: http://storage-server.internal:3080
       icon: auto-invert sh:gitea-dark
     - title: Glances (ZimaOS NAS)
+      description: An Eye on Your System
       url: http://storage-server.internal:61208/
       icon: auto-invert /assets/icons/glances.svg
     - title: Gotify
+      description: Push Notification Server
       url: https://gotify.rac3r4life.online
       icon: auto-invert /assets/icons/gotify-notification.svg
     - title: Homebox
+      description: Inventory Management
       url: http://storage-server.internal:3100/home
       icon: auto-invert /assets/icons/homebox.svg
     - title: Immich
+      description: Bye Bye, Google Photos
       url: http://storage-server.internal:2283
       icon: si:immich
     - title: Kacey (3D Printer)
+      description: Fluidd Web-UI
       url: http://kacey.internal
       icon: auto-invert /assets/icons/creality-v1.svg
     - title: NetAlertX
+      description: Centralized Network Visibility
       url: http://storage-server.internal:20211
       icon: auto-invert sh:netalertx-dark
     - title: Network Documentation
+      description: Self-Hosted Nginx Server
       url: http://storage-server.internal:8080
       icon: auto-invert /assets/icons/network-documentation-portfolio.svg
     - title: Obsidian LiveSync
+      description: Sync with CouchDB
       url: http://storage-server.internal:5984/_utils/
       basic-auth:
         username: ${VAULT_USER}
         password: ${VAULT_PW}
       icon: si:obsidian
-    - title: Openprinting CUPS Server
-      url: https://192.168.50.2:631/
-      allow-insecure: true
-      icon: auto-invert /assets/icons/printer.svg
     - title: OpenSpeedTest
+      description: Test Network Performance
       url: http://storage-server.internal:3004/
       icon: auto-invert sh:openspeedtest-dark
     - title: Portracker
+      description: Port Monitoring & Discovery
       url: http://storage-server.internal:4999
       icon: auto-invert sh:portracker
     - title: Spoolman
+      description: Filament Inventory Management
       url: http://storage-server.internal:7912
       icon: auto-invert sh:spoolman-dark
     - title: Technitium DNS Server
+      description: Authoritative & Recursive DNS
       url: https://debian-vm.internal:53443
       icon: auto-invert sh:technitium-dark
       allow-insecure: true
     - title: yt-dlp-webUI
+      description: Download YouTube Videos
       url: http://storage-server.internal:3033/
       icon: auto-invert sh:youtube-dl-dark
