@@ -1,6 +1,6 @@
 - type: docker-containers
   title: Docker Containers (pi-server)
-  title-icon: mdi:docker
+  title-icon: auto-invert /assets/lucide/container.svg
   hide-by-default: false
   containers:
     beszel:
