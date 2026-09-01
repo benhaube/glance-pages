@@ -3,26 +3,37 @@
   title: ZimaOS Modules
   title-icon: auto-invert sh:zimaos-dark
   sites:
+    - title: ClamAV Dashboard
+      description: Web-UI Frontend for ClamAV
+      url: http://storage-server.internal:8099/
+      icon: auto-invert sh:clamav-dark
     - title: IceWhale Community
+      description: ZimaOS Forums
       url: https://community.zimaspace.com/
       icon: auto-invert /assets/icons/icewhale.svg
     - title: PeerDrop
+      description: Share Files Between Devices
       url: http://storage-server.internal/modules/icewhale_peerdrop/
       icon: auto-invert sh:snapdrop-dark
     - title: ZimaOS Dashboard
+      description: Main Server Web-UI
       url: http://storage-server.internal
       icon: auto-invert sh:zimaos-dark
     - title: Zima Cron
+      description: Automate Tasks on ZimaOS
       url: http://storage-server.internal/modules/cron/
       icon: auto-invert /assets/icons/cron.svg
     - title: Zima Firewall
+      description: Web-UI for IPtables
       url: http://storage-server.internal/modules/zfw/index.html
       icon: auto-invert /assets/icons/firewall.svg
     - title: Zima Files
+      description: File Browser Web-UI
       url: http://storage-server.internal/modules/icewhale_files/
       icon: auto-invert /assets/icons/folder-open.svg
     - title: Zima VM
-      url: http://storage-server.internal/modules/zimaos_zvm/
+      description: Manage Virtual Machines
+      url: http://storage-server.internal/modules/zima_vm_extras/index.html
       icon: auto-invert /assets/icons/stacks.svg
     # - title: ttydBridge
       # url: http://storage-server.internal:2222/
