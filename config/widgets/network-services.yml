@@ -11,7 +11,7 @@
       url: https://benhaube.cloudflareaccess.com/#/Launcher
       icon: auto-invert sh:cloudflare-dark
     - title: Cloudflare Zero-Trust
-      url: https://dash.cloudflare.com/login
+      url: https://dash.cloudflare.com
       icon: auto-invert sh:cloudflare-zero-trust-dark
     - title: F1 Replay Timing
       url: http://storage-server.internal:8000
