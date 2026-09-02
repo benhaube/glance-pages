@@ -1,7 +1,7 @@
 - type: custom-api
   cache: 30s
   title: Glances
-  icon: auto-invert sh:glances-dark
+  icon: auto-invert /assets/icons/glances.svg
   options:
     glances-url: "http://${GLANCES_URL}:61208"
     server-name: "ZimaOS NAS"
@@ -374,7 +374,7 @@
 - type: custom-api
   cache: 30s
   title: Glances
-  icon: auto-invert sh:glances-dark
+  icon: auto-invert /assets/icons/glances.svg
   options:
     glances-url: "http://${GLANCES_URL_2}:61208"
     server-name: "Pi 4B Server"
