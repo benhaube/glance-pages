@@ -1,11 +1,11 @@
 - type: extension
-  url: http://glance-github-graph:9090/stats/benhaube
+  url: http://192.168.50.2:9090/stats/benhaube
   allow-potentially-dangerous-html: true
   parameters:
     show_quartiles: true
 
 - type: extension
-  url: http://glance-github-graph:9090/graph/benhaube
+  url: http://192.168.50.2:9090/graph/benhaube
   allow-potentially-dangerous-html: true
   parameters:
     background-color: "#1d2025"
@@ -14,4 +14,4 @@
     show-months: true 
     show-weekdays: true 
     font-size: 9 
-    transition-hue: true 
+    transition-hue: false 
