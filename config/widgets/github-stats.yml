@@ -14,4 +14,4 @@
     show-months: true 
     show-weekdays: true 
     font-size: 9 
-    transition-hue: true 
+    transition-hue: false 
