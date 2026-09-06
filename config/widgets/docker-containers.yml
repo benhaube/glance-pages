@@ -23,6 +23,8 @@
       icon: auto-invert /assets/icons/dockge.svg
     f1_api:
       parent: glance
+    glance-glance-github-graph-1:
+      parent: glance
     glances-glances-1:
       name: Glances
       description: An Eye on Your System
@@ -44,6 +46,11 @@
       url: http://pi-server.internal:8080
       icon: auto-invert sh:it-tools-dark
       id: it-tools
+    matter-server:
+      name: Matter Server
+      description: The Open Home Foundation Matter Server
+      icon: auto-invert sh:matter-dark
+      id: matter-server
     network-utils-ws:
       parent: it-tools
     portracker:
