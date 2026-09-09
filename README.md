@@ -1,5 +1,5 @@
 <p align="center">
-    <img src=".assets/logo.webp" alt="Glance logo" width="400" height="400">
+    <img src=".assets/logo.webp" alt="Glance logo" width="300" height="300">
 </p>
 <h1 align="center">
     My Glance Dashboard Configuration
