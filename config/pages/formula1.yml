@@ -1,4 +1,5 @@
 - name: Formula 1
+  name-icon: auto-invert /assets/lucide/motor-racing-helmet.svg
   # Show a title header on mobile web browsers
   show-mobile-header: true
   # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
