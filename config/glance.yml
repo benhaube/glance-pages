@@ -38,14 +38,14 @@ theme:
   custom-css-file: /assets/user.css
 
 auth:
-  secret-key: /0vnYLQFqGslEKS/J392VH9kmnQYxnGjdhcXhj+YzEMX+8d3IMHpbGDraZDDtm3vX/eKkx158XQxGRsDD7RD7A==
+  secret-key: ${secret:auth_secret}
   users:
     admin:
-      password-hash: ${ADMIN_PW_HASH}
+      password-hash: ${secret:admin_pw_hash}
     bhaube:
-      password-hash: ${BHAUBE_PW_HASH}
+      password-hash: ${secret:bhaube_pw_hash}
     rpereira:
-      password-hash: ${RPEREIRA_PW_HASH}
+      password-hash: ${secret:rpereira_pw_hash}
 
 pages:
   # It's not necessary to create a new file for each page and include it, you can simply
