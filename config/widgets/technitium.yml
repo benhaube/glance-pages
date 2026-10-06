@@ -6,7 +6,7 @@
   subrequests:
     update-check:
       url: http://${TECHNITIUM_IP_PORT}/api/user/checkForUpdate?token=${secret:technitium_token}
-  url: http://${TECHNITIUM_IP_PORT}/api/dashboard/stats/get?token=${TECHNITIUM_TOKEN}&type=${TECHNITIUM_STATS_TIMEFRAME}&utc=true
+  url: http://${TECHNITIUM_IP_PORT}/api/dashboard/stats/get?token=${secret:technitium_token}&type=${TECHNITIUM_STATS_TIMEFRAME}&utc=true
   method: GET
   template: |
     <ul class="list list-gap-10 collapsible-container" data-collapse-after="3">
