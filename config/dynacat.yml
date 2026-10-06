@@ -45,11 +45,11 @@ auth:
   secret-key: ${secret:auth_secret}
   users:
     admin:
-      password-hash: ${secret:admin_pw_hash}
+      password: ${secret:admin_pw_hash}
     bhaube:
-      password-hash: ${secret:bhaube_pw_hash}
+      password: ${secret:bhaube_pw_hash}
     rpereira:
-      password-hash: ${secret:rpereira_pw_hash}
+      password: ${secret:rpereira_pw_hash}
 
 pages:
   # It's not necessary to create a new file for each page and include it, you can simply
