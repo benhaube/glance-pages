@@ -4,11 +4,9 @@ server:
 
 branding:
   app-name: Dashboard
-  # logo-text: G
   logo-url: /assets/logo.png
   app-icon-url: /assets/logo.png
   favicon-url: /assets/logo.svg
-  # hide-footer: true
 
 theme:
   presets:
@@ -37,8 +35,6 @@ theme:
       positive-color: 115 54 76
       negative-color: 347 70 65
 
-  # Note: assets are cached by the browser, changes to the CSS file
-  # will not be reflected until the browser cache is cleared (Ctrl+F5)
   custom-css-file: /assets/user.css
 
 auth:
@@ -52,8 +48,6 @@ auth:
       password: ${secret:rpereira_pw_hash}
 
 pages:
-  # It's not necessary to create a new file for each page and include it, you can simply
-  # put its contents here, though multiple pages are easier to manage when separated
   - $include: pages/home.yml
   - $include: pages/network.yml
   - $include: pages/formula1.yml
