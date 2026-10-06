@@ -64,7 +64,7 @@
       url: http://storage-server.internal:5984/_utils/
       basic-auth:
         username: ${VAULT_USER}
-        password: ${VAULT_PW}
+        password: ${secret:vault_pw}
       icon: si:obsidian
     - title: OpenSpeedTest
       description: Test Network Performance

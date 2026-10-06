@@ -3,4 +3,4 @@
   title-icon: auto-invert /assets/lucide/activity.svg
   service: technitium
   url: http://debian-vm.internal:5380/
-  token: ${TECHNITIUM_TOKEN}
+  token: ${secret:technitum_token}

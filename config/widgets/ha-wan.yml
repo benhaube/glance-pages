@@ -4,7 +4,7 @@
   cache: 10m
   url: ${HASS_URL}/api/states
   headers:
-    Authorization: "Bearer ${HASS_API_KEY}"
+    Authorization: "Bearer ${secret:hass_api_key}"
     Content-Type: "application/json"
   template: |
     {{ if eq .Response.StatusCode 200 }}

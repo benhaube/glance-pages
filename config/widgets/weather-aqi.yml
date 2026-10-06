@@ -2,7 +2,7 @@
   title: Air Quality
   title-icon: auto-invert /assets/lucide/wind.svg
   cache: 10m
-  url: https://api.waqi.info/feed/@8700/?token=${AQI_TOKEN}
+  url: https://api.waqi.info/feed/@8700/?token=${secret:aqi_token}
   template: |
     {{ $aqi := printf "%03s" (.JSON.String "data.aqi") }}
     {{ $aqiraw := .JSON.String "data.aqi" }}

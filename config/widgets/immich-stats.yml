@@ -5,12 +5,12 @@
   cache: 10m
   url: ${IMMICH_URL}/api/server/statistics
   headers:
-    x-api-key: ${IMMICH_KEY}
+    x-api-key: ${secret:immich_key}
   subrequests:
     storage:
       url: ${IMMICH_URL}/api/server/storage
       headers:
-        x-api-key: ${IMMICH_KEY}
+        x-api-key: ${secret:immich_key}
   options:
     show-cards: true
     show-storage-bar: true

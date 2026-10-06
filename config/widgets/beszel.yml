@@ -4,7 +4,7 @@
   cache: 5m
   options:
     base-url: ${BESZEL_URL}
-    api-key: ${BESZEL_TOKEN}
+    api-key: ${secret:beszel_token}
   template: |
     {{/* Required config options */}}
     {{ $baseURL := .Options.StringOr "base-url" "" }}

@@ -6,8 +6,8 @@
   collapse-after: 5
   # Without authentication the Github API allows for up to 60 requests per hour. You can create a
   # read-only token from your Github account settings and use it here to increase the limit.
-  token: ${GITHUB_TOKEN}
-  gitlab-token: ${GITLAB_TOKEN}
+  token: ${secret:github_token}
+  gitlab-token: ${secret:gitlab_token}
   repositories:
     - dockerhub:glanceapp/glance
     - bitfireAT/davx5-ose
