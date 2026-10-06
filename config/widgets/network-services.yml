@@ -62,9 +62,8 @@
     - title: Obsidian LiveSync
       description: Sync with CouchDB
       url: http://storage-server.internal:5984/_utils/
-      basic-auth:
-        username: ${VAULT_USER}
-        password: ${secret:vault_pw}
+      alt-status-codes:
+        - 401
       icon: si:obsidian
     - title: OpenSpeedTest
       description: Test Network Performance
