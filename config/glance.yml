@@ -7,20 +7,21 @@ server:
   # hide-footer: true
 
 theme:
+  disable-picker: true
   presets:
     default-dark:
       background-color: 216 28 7
       contrast-multiplier: 1.5
       primary-color: 321 100 71
-      positive-color: 112 82 46
-      negative-color: 2 100 44
+      positive-color: 136 53 51
+      negative-color: 4 68 55
     default-light:
       light: true
       background-color: 240 12 95
       contrast-multiplier: 1.5
       primary-color: 321 100 71
-      positive-color: 112 82 46
-      negative-color: 2 100 44
+      positive-color: 136 53 51
+      negative-color: 4 68 55
   custom-css-file: /assets/user.css
 
 auth:
