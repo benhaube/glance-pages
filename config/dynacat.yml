@@ -4,8 +4,8 @@ server:
 
 branding:
   app-name: Dashboard
-  logo-url: /assets/logo.png
-  app-icon-url: /assets/logo.png
+  logo-url: /assets/logo.svg
+  app-icon-url: /assets/logo.svg
   favicon-url: /assets/logo.svg
 
 theme:
