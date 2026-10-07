@@ -1,6 +1,14 @@
-<svg class="logo-color" fill="none" stroke="#FF6BCB" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" version="1.1" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-  <rect x="1" y="1" width="7" height="9" rx="1"/>
-  <rect x="12" y="1" width="7" height="5" rx="1"/>
-  <rect x="12" y="10" width="7" height="9" rx="1"/>
-  <rect x="1" y="14" width="7" height="5" rx="1"/>
+<svg
+  fill="none"
+  stroke="#ff6bcb"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  viewBox="0 0 22 22"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect x="2" y="2" width="7" height="9" rx="1"/>
+  <rect x="13" y="2" width="7" height="5" rx="1"/>
+  <rect x="13" y="11" width="7" height="9" rx="1"/>
+  <rect x="2" y="15" width="7" height="5" rx="1"/>
 </svg>
