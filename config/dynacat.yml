@@ -10,31 +10,19 @@ branding:
 
 theme:
   presets:
-    Neon-Pink:
-      background-color: 240 27 11
+    default-dark:
+      background-color: 216 28 7
       contrast-multiplier: 1.5
       primary-color: 321 100 71
-      positive-color: 165 78 51
-      negative-color: 360 100 71
-    Formula-One:
-      background-color: 0 0 5
-      contrast-multiplier: 1.5
-      primary-color: 2 100 44
       positive-color: 112 82 46
       negative-color: 2 100 44
-    Material-Purple-Enhanced:
-      background-color: 227 46 16
-      contrast-multiplier: 1.3
-      primary-color: 233 76 85
-      positive-color: 115 54 76
-      negative-color: 347 70 65
-    Material-Dark-Forest:
-      background-color: 187 100 8
-      contrast-multiplier: 1.3
-      primary-color: 188 54 83
-      positive-color: 115 54 76
-      negative-color: 347 70 65
-
+    default-light:
+      light: true
+      background-color: 240 12 95
+      contrast-multiplier: 1.5
+      primary-color: 321 100 71
+      positive-color: 112 82 46
+      negative-color: 2 100 44
   custom-css-file: /assets/user.css
 
 auth:
