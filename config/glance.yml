@@ -7,7 +7,6 @@ server:
   # hide-footer: true
 
 theme:
-  disable-picker: true
   presets:
     default-dark:
       background-color: 216 28 7
