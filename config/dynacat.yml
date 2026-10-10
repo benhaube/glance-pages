@@ -35,6 +35,12 @@ auth:
     rpereira:
       password: ${secret:rpereira_pw_hash}
 
+api: 
+  enabled: true 
+  token: ${secret:server_api}
+  allowed-origins:
+    - http://storage-server.internal:4444
+
 pages:
   - $include: pages/home.yml
   - $include: pages/network.yml
