@@ -35,10 +35,10 @@ auth:
     rpereira:
       password: ${secret:rpereira_pw_hash}
   oidc:
-    issuer_url: https://auth.rac3r4life.online/application/o/glance-dashboard/
-    client_id: GOSliJMFReaZhAXMcjHMDaIHiAfgpACTmAcDgt9A
-    client_secret: ${secret:oidc_client_secret}
-    redirect_url: http://pi-server.internal:8580/api/oidc/callback
+    issuer-url: https://auth.rac3r4life.online/application/o/glance-dashboard/
+    client-id: GOSliJMFReaZhAXMcjHMDaIHiAfgpACTmAcDgt9A
+    client-secret: ${secret:oidc_client_secret}
+    redirect-url: http://pi-server.internal:8580/api/oidc/callback
     scopes:
       - openid
       - profile
