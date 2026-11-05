@@ -5,25 +5,20 @@
   # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
   # hide-desktop-navigation: true
   columns:
-
     - size: small
       widgets:
-
         - $include: /app/config/widgets/search.yml
         - $include: /app/config/widgets/f1-last-race-results.yml
         - $include: /app/config/widgets/rss-f1.yml
 
     - size: full
       widgets:
-
         - type: split-column
           widgets:
-
             - $include: /app/config/widgets/f1-next-race.yml
-            
+
             - type: group
               widgets:
-
                 - $include: /app/config/widgets/f1-driver-standings.yml
                 - $include: /app/config/widgets/f1-constructor-standings.yml
 
@@ -31,7 +26,6 @@
 
     - size: small
       widgets:
-
         - $include: /app/config/widgets/clock.yml
         - $include: /app/config/widgets/weather.yml
         - $include: /app/config/widgets/weather-aqi.yml

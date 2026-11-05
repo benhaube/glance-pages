@@ -2,10 +2,6 @@ server:
   port: 8580
   assets-path: /app/assets
 
-# branding:
-  # app-icon-url: /assets/icons/glance.png
-  # hide-footer: true
-
 theme:
   presets:
     default-dark:

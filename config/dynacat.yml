@@ -44,8 +44,8 @@ auth:
       - profile
       - email
 
-api: 
-  enabled: true 
+api:
+  enabled: true
   token: ${secret:server_api}
   allowed-origins:
     - http://storage-server.internal:4444

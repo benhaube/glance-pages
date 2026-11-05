@@ -25,7 +25,7 @@ services:
     environment:
       - TIMEZONE=America/New_York # Specify your timezone.
       - TRACK_COLOUR=#E10600 # Specify desired track map color
-      - EVENT_DETAIL=main # Optional. main tracks qualis and races (inc. sprints), race tracks races. 
+      - EVENT_DETAIL=main # Optional. main tracks qualis and races (inc. sprints), race tracks races.
     ports:
       - 4463:4463
     restart: unless-stopped
