@@ -1,6 +1,6 @@
 - type: docker-containers
   sock-path: http://storage-server.internal:2375
-  title: Docker Containers (pi-server)
+  title: Docker Containers (ZimaOS-NAS)
   title-icon: auto-invert /assets/lucide/container.svg
   hide-by-default: false
   containers:
