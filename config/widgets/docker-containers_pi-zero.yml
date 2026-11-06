@@ -1,0 +1,18 @@
+- type: docker-containers
+  sock-path: http://pi-zero.internal:2375
+  title: Docker Containers (pi-zero)
+  title-icon: auto-invert /assets/lucide/container.svg
+  hide-by-default: false
+  containers:
+    beszel-agent:
+      name: Beszel Agent
+      description: Agent for Beszel Hub
+      icon: auto-invert sh:beszel-dark
+    dockge-dockge-1:
+      name: Dockge
+      description: Docker Compose Manager
+      icon: auto-invert /assets/icons/dockge.svg
+    docker-proxy:
+      name: Docker Proxy
+      description: Read-Only Network Access
+      icon: si:docker
