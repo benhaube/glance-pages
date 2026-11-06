@@ -64,6 +64,7 @@
       name: Glances
       description: An Eye on Your System
       icon: auto-invert /assets/icons/glances.svg
+      url: http://storage-server.internal:61208
     gotify:
       name: Gotify
       description: Push Notification Server
