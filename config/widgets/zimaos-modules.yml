@@ -15,6 +15,10 @@
       description: Main Server Web-UI
       url: http://storage-server.internal
       icon: auto-invert sh:zimaos-dark
+    - title: Zima Backup & Sync
+      description: ZimaOS Backup Utility
+      url: http://storage-server.internal/modules/zbackup/index.html
+      icon: auto-invert /assets/lucide/hard-drive-upload.svg
     - title: Zima Cron
       description: Automate Tasks on ZimaOS
       url: http://storage-server.internal/modules/cron/
