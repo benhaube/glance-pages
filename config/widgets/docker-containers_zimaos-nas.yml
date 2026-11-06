@@ -1,0 +1,118 @@
+- type: docker-containers
+  sock-path: http://storage-server.internal:2375
+  title: Docker Containers (pi-server)
+  title-icon: auto-invert /assets/lucide/container.svg
+  hide-by-default: false
+  containers:
+    authentik-server-1:
+      name: Authentik Server
+      description: SSO Provider
+      icon: si:authentik
+      url: https://auth.rac3r4life.online
+      id: authentik
+    authentik-worker-1:
+      parent: authentik
+    authentik-postgresql-1:
+      parent: authentik
+    beszel-agent:
+      name: Beszel Agent
+      description: Agent for Beszel Hub
+      icon: auto-invert sh:beszel-dark
+    clamav-dashboard-clamav-dashboard-1:
+      name: ClamAV Dashboard
+      description: ClamAV Web UI
+      icon: auto-invert sh:clamav-dark
+      url: http://storage-server.internal:8099
+      id: clamav
+    clamav-dashboard-clamav-server-1:
+      parent: clamav
+    obsidian-livesync:
+      name: CouchDB
+      description: Database for Obsidian LiveSync
+      icon: si:apachecouchdb
+    degoog-degoog-1:
+      name: Degoog
+      description: Self-Hosted Search Engine
+      icon: auto-invert sh:degoog-dark
+      url: http://storage-server.internal:4444/
+    dockge:
+      name: Dockge
+      description: Docker Compose Manager
+      icon: auto-invert /assets/icons/dockge.svg
+    f1-replay-timing-f1timing-1:
+      name: F1 Replay Timing
+      description: F1 Timing Data
+      icon: auto-invert /assets/icons/f1-replay-timing.svg
+      url: http://storage-server.internal:8000
+    gitea:
+      name: Gitea
+      description: Git With a Cup of Tea
+      icon: auto-invert sh:git-dark
+      url: http://storage-server.internal:3080
+      id: gitea
+    gitea_runner:
+      parent: gitea
+    glances:
+      name: Glances
+      description: An Eye on Your System
+      icon: auto-invert /assets/icons/glances.svg
+    gotify:
+      name: Gotify
+      description: Push Notification Server
+      icon: auto-invert /assets/icons/gotify-notification.svg
+      url: https://gotify.rac3r4life.online
+    homebox-homebox-1:
+      name: Homebox
+      description: Inventory Management
+      icon: auto-invert /assets/icons/homebox.svg
+      url: http://storage-server.internal:3100
+    immich_server:
+      name: Immich
+      description: Bye Bye, Google Photos
+      icon: si:immich
+      url: http://storage-server.internal:2283
+      id: immich
+    immich_machine_learning:
+      parent: immich
+    immich_postgres:
+      parent: immich
+    immich_redis:
+      parent: immich
+    netalertx:
+      name: NetAlertX
+      description: Centralized Network Visibility
+      icon: auto-invert sh:netalertx-dark
+      url: http://storage-server.internal:20211
+    network-documentation:
+      name: Nginx
+      description: Web Server
+      icon: si:nginx
+      url: http://storage-server.internal:8080
+    openspeedtest:
+      name: OpenSpeedTest
+      description: Test Network Performance
+      icon: auto-invert sh:openspeedtest-dark
+      url: http://storage-server.internal:3004
+    portracker:
+      name: Portracker
+      description: Port Monitoring & Discovery
+      icon: auto-invert sh:portracker
+      url: http://storage-server.internal:4999
+    spoolman-spoolman-1:
+      name: Spoolman
+      description: Filament Inventory Management
+      icon: auto-invert sh:spoolman-dark
+      url: http://storage-server.internal:7912
+    syncthing:
+      name: Syncthing
+      description: Continuous File Synchronization
+      icon: auto-invert sh:syncthing-dark
+    ttydbridge:
+      name: ttydBridge
+      description: Terminal Access for the Web
+      icon: auto-invert /assets/lucide/square-terminal.svg
+    yt-dlp-webui-yt-dlp-webui-1:
+      name: yt-dlp Web-UI
+      description: Download YouTube Videos
+      icon: auto-invert sh:youtube-dl-dark
+      url: http://storage-server.internal:3033/
