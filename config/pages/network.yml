@@ -18,6 +18,7 @@
         - $include: /app/config/widgets/search.yml
         - $include: /app/config/widgets/network-services.yml
         - $include: /app/config/widgets/zimaos-modules.yml
+        - $include: /app/config/widgets/docker-containers_debian-vm.yml
         - $include: /app/config/widgets/docker-containers_pi-server.yml
         - $include: /app/config/widgets/docker-containers_zimaos-nas.yml
         # - $include: /app/config/widgets/dns-stats.yml
