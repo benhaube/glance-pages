@@ -26,6 +26,10 @@
       id: clamav
     clamav-dashboard-clamav-server-1:
       parent: clamav
+    cloudflare-tunnel:
+      name: Cloudflare Tunnel
+      description: Reverse-Proxy Server
+      icon: si:cloudflare
     obsidian-livesync:
       name: CouchDB
       description: Database for Obsidian LiveSync
@@ -35,6 +39,10 @@
       description: Self-Hosted Search Engine
       icon: auto-invert sh:degoog-dark
       url: http://storage-server.internal:4444/
+    docker-proxy:
+      name: Docker Proxy
+      description: Read-Only Network Access
+      icon: si:docker
     dockge:
       name: Dockge
       description: Docker Compose Manager
