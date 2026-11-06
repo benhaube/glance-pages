@@ -14,7 +14,6 @@
     cloudflare-tunnel:
       name: Cloudflare Tunnel
       description: Reverse-Proxy Server
-      url: https://dash.cloudflare.com/bbccc041576926c60fba0b3a78075ca6/tunnels
       icon: si:cloudflare
     docker-image-download-server:
       parent: it-tools
