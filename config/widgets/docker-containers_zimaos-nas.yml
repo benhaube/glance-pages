@@ -120,6 +120,7 @@
       name: ttydBridge
       description: Terminal Access for the Web
       icon: auto-invert /assets/lucide/square-terminal.svg
+      url: http://storage-server.internal:4444
     yt-dlp-webui-yt-dlp-webui-1:
       name: yt-dlp Web-UI
       description: Download YouTube Videos
