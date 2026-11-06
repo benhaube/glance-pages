@@ -8,6 +8,10 @@
       url: https://asusrouter.internal:8443
       icon: auto-invert /assets/icons/router.svg
       allow-insecure: true
+    - title: Clients Status
+      description: Uptime Kuma Clients Status Page
+      url: http://pi-server.internal:3001/status/clients
+      icon: auto-invert /assets/lucide/monitor-pc.svg
     - title: Cloudflare Access
       description: Self-hosted App Launcher
       url: https://benhaube.cloudflareaccess.com/#/Launcher
@@ -23,10 +27,22 @@
       url: https://192.168.50.2:631/
       allow-insecure: true
       icon: auto-invert /assets/icons/printer.svg
+    - title: Infrastructure Status
+      description: Uptime Kuma Infrastructure Status Page
+      url: http://pi-server.internal:3001/status/infra
+      icon: auto-invert /assets/lucide/network.svg
     - title: Kacey (3D Printer)
       description: Fluidd Web-UI
       url: http://kacey.internal
       icon: auto-invert /assets/icons/creality-v1.svg
+    - title: Servers Status
+      description: Uptime Kuma Servers Status Page
+      url: http://pi-server.internal:3001/status/servers
+      icon: auto-invert /assets/lucide/server.svg
+    - title: Services Status
+      description: Uptime Kuma Services Status Page
+      url: http://pi-server.internal:3001/status/services
+      icon: auto-invert /assets/lucide/cloud.svg
     - title: Technitium DNS Server
       description: Authoritative & Recursive DNS
       url: https://debian-vm.internal:53443
