@@ -27,7 +27,11 @@
       description: File Browser Web-UI
       url: http://storage-server.internal/modules/icewhale_files/
       icon: auto-invert /assets/icons/folder-open.svg
-    - title: Zima VM
+    - title: ZVM
+      description: Access Virtual Machines
+      url: http://storage-server.internal/modules/zimaos_zvm/index.html
+      icon: auto-invert /assets/lucide/layers-plus.svg
+    - title: Zima VM Extras
       description: Manage Virtual Machines
       url: http://storage-server.internal/modules/zima_vm_extras/index.html
       icon: auto-invert /assets/icons/stacks.svg
