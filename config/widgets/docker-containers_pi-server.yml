@@ -17,6 +17,8 @@
       icon: si:cloudflare
     docker-image-download-server:
       parent: it-tools
+    docker-proxy:
+      parent: uptime-kuma
     dockge-dockge-1:
       name: Dockge
       description: Docker container management
@@ -59,7 +61,8 @@
       icon: auto-invert sh:portracker
       description: Port Monitoring & Discovery
     uptime-kuma:
-      name: Uptime-Kuma
+      name: Uptime Kuma
       description: A Fancy Monitoring Tool
       url: http://pi-server.internal:3001
       icon: auto-invert /assets/icons/uptime-kuma.svg
+      id: uptime-kuma
