@@ -22,7 +22,6 @@
         - $include: /app/config/widgets/docker-containers_zimaos-nas.yml
         - $include: /app/config/widgets/immich-stats.yml
         - $include: /app/config/widgets/technitium.yml
-        - $include: /app/config/widgets/openspeedtest.yml
 
     - size: small
       widgets:
