@@ -9,8 +9,6 @@
   token: ${secret:github_token}
   gitlab-token: ${secret:gitlab_token}
   repositories:
-    - anudeepND/whitelist
-    - bitfireAT/davx5-ose
     - bitwarden/clients
     - caddyserver/caddy
     - docker.io/library/postgres:16-alpine
@@ -38,7 +36,6 @@
     - dockerhub:panonim/dynacat
     - dockerhub:sharevb/it-tools
     - dockerhub:skyallinott/f1_api:latest
-    - ente-io/ente
     - fastfetch-cli/fastfetch
     - fluidd-core/fluidd
     - ghcr.io/adn8naiagent/f1replaytiming
