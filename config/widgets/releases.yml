@@ -9,10 +9,8 @@
   token: ${secret:github_token}
   gitlab-token: ${secret:gitlab_token}
   repositories:
-    - adn8naiagent/f1replaytiming
     - bitwarden/clients
     - caddyserver/caddy
-    - degoog-org/degoog
     - dockerhub:clamav/clamav:1.5_base
     - dockerhub:cloudflare/cloudflared
     - dockerhub:couchdb
@@ -37,20 +35,12 @@
     - dockerhub:panonim/dynacat
     - dockerhub:sharevb/it-tools
     - dockerhub:skyallinott/f1_api:latest
-    - donkie/spoolman
     - fastfetch-cli/fastfetch
     - fluidd-core/fluidd
     - gitlab:chrony/chrony
-    - goauthentik/server
-    - goauthentik/server
-    - immich-app/immich-machine-learning:v3-openvino
-    - immich-app/immich-server:v3-release
-    - jacko88888/clamav-dashboard:0.2.4
-    - matter-js/matterjs-server:stable
     - OpenPrinting/cups
     - SoftFever/OrcaSlicer
     - starship/starship
     - syncthing/syncthing
-    - sysadminsmedia/homebox
     - TechnitiumSoftware/DnsServer
     - yt-dlp/yt-dlp
