@@ -4,6 +4,11 @@
   title-icon: auto-invert /assets/lucide/container.svg
   hide-by-default: false
   containers:
+    arcane:
+      name: Arcane
+      description: Modern Docker Management
+      icon: auto-invert sh:arcane-dark
+      url: http://storage-server.internal:3552
     authentik-server-1:
       name: Authentik Server
       description: SSO Provider

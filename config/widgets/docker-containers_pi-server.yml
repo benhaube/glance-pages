@@ -3,6 +3,10 @@
   title-icon: auto-invert /assets/lucide/container.svg
   hide-by-default: false
   containers:
+    arcane-edge-agent:
+      name: Arcane Agent
+      description: Modern Docker Management
+      icon: auto-invert sh:arcane-dark
     beszel:
       name: Beszel Hub
       description: Server monitoring
