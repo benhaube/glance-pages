@@ -7,7 +7,7 @@
     arcane:
       name: Arcane
       description: Modern Docker Management
-      icon: auto-invert sh:arcane-dark
+      icon: auto-invert /assets/icons/arcane.svg
       url: http://storage-server.internal:3552
     authentik-server-1:
       name: Authentik Server
@@ -47,7 +47,7 @@
     docker-proxy:
       name: Docker Proxy
       description: Read-Only Network Access
-      icon: si:docker
+      icon: auto-invert /assets/icons/docker-proxy.svg
     dockge:
       name: Dockge
       description: Docker Compose Manager

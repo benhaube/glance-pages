@@ -15,4 +15,4 @@
     docker-proxy:
       name: Docker Proxy
       description: Read-Only Network Access
-      icon: si:docker
+      icon: auto-invert /assets/icons/docker-proxy.svg

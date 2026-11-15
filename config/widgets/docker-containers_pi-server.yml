@@ -6,7 +6,7 @@
     arcane-edge-agent:
       name: Arcane Agent
       description: Modern Docker Management
-      icon: auto-invert sh:arcane-dark
+      icon: auto-invert /assets/icons/arcane.svg
     beszel:
       name: Beszel Hub
       description: Server monitoring
