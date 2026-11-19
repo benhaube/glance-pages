@@ -1,0 +1,30 @@
+name: Deploy Glance Configuration
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'assets/**'
+      - 'config/**'
+      - '.gitea/workflows/deploy.yaml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy Configuration via Rsync over SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          rsync -av --delete -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" assets/ $SERVER_USER@$SERVER_IP:/opt/stacks/glance/assets/
+          rsync -av --delete -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" config/ $SERVER_USER@$SERVER_IP:/opt/stacks/glance/config/
