@@ -3,39 +3,51 @@
   title: ZimaOS Modules
   title-icon: auto-invert sh:zimaos-dark
   sites:
+    - title: Admin Tools
+      description: Useful Linux CLI Tools
+      url: http://storage-server.internal/modules/admintools/index.html
+      icon: auto-invert /assets/lucide/square-terminal.svg
+    - title: Cron
+      description: Automate Tasks on ZimaOS
+      url: http://storage-server.internal/modules/cron/
+      icon: auto-invert /assets/icons/cron.svg
+    - title: Files
+      description: File Browser Web-UI
+      url: http://storage-server.internal/modules/icewhale_files/
+      icon: auto-invert /assets/icons/folder-open.svg
     - title: IceWhale Community
       description: ZimaOS Forums
       url: https://community.zimaspace.com/
       icon: auto-invert /assets/icons/icewhale.svg
+    - title: Module Manager
+      description: Install/Update ZimaOS Modules
+      url: http://storage-server.internal/modules/modmanager/index.html
+      icon: auto-invert /assets/lucide/layout-grid-plus.svg
     - title: PeerDrop
       description: Share Files Between Devices
       url: http://storage-server.internal/modules/icewhale_peerdrop/
       icon: auto-invert sh:snapdrop-dark
+    - title: Sync & Backup
+      description: ZimaOS Backup Utility
+      url: http://storage-server.internal/modules/zbackup/index.html
+      icon: auto-invert /assets/lucide/hard-drive-upload.svg
+    - title: VM Extras
+      description: Manage Virtual Machines
+      url: http://storage-server.internal/modules/zima_vm_extras/index.html
+      icon: auto-invert /assets/icons/stacks.svg
+    - title: WireGuard
+      description: VPN Configuration
+      url: http://storage-server.internal/modules/wireguard/index.html
+      icon: si:wireguard
     - title: ZimaOS Dashboard
       description: Main Server Web-UI
       url: http://storage-server.internal
       icon: auto-invert sh:zimaos-dark
-    - title: Zima Backup & Sync
-      description: ZimaOS Backup Utility
-      url: http://storage-server.internal/modules/zbackup/index.html
-      icon: auto-invert /assets/lucide/hard-drive-upload.svg
-    - title: Zima Cron
-      description: Automate Tasks on ZimaOS
-      url: http://storage-server.internal/modules/cron/
-      icon: auto-invert /assets/icons/cron.svg
     - title: Zima Firewall
       description: Web-UI for IPtables
       url: http://storage-server.internal/modules/zfw/index.html
       icon: auto-invert /assets/icons/firewall.svg
-    - title: Zima Files
-      description: File Browser Web-UI
-      url: http://storage-server.internal/modules/icewhale_files/
-      icon: auto-invert /assets/icons/folder-open.svg
     - title: ZVM
       description: Access Virtual Machines
       url: http://storage-server.internal/modules/zimaos_zvm/index.html
       icon: auto-invert /assets/lucide/layers-plus.svg
-    - title: Zima VM Extras
-      description: Manage Virtual Machines
-      url: http://storage-server.internal/modules/zima_vm_extras/index.html
-      icon: auto-invert /assets/icons/stacks.svg
