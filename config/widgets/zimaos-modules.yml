@@ -38,11 +38,11 @@
     - title: WireGuard
       description: VPN Configuration
       url: http://storage-server.internal/modules/wireguard/index.html
-      icon: si:wireguard
+      icon: auto-invert /assets/lucide/waypoints.svg
     - title: ZimaOS Dashboard
       description: Main Server Web-UI
       url: http://storage-server.internal
-      icon: auto-invert sh:zimaos-dark
+      icon: auto-invert /assets/lucide/layout-grid.svg
     - title: Zima Firewall
       description: Web-UI for IPtables
       url: http://storage-server.internal/modules/zfw/index.html
