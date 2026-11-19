@@ -34,7 +34,7 @@
     - title: VM Extras
       description: Manage Virtual Machines
       url: http://storage-server.internal/modules/zima_vm_extras/index.html
-      icon: auto-invert /assets/icons/stacks.svg
+      icon: auto-invert /assets/icons/layers-plus.svg
     - title: WireGuard
       description: VPN Configuration
       url: http://storage-server.internal/modules/wireguard/index.html
@@ -50,4 +50,4 @@
     - title: ZVM
       description: Access Virtual Machines
       url: http://storage-server.internal/modules/zimaos_zvm/index.html
-      icon: auto-invert /assets/lucide/layers-plus.svg
+      icon: auto-invert /assets/lucide/stacks.svg
