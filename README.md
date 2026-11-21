@@ -3,7 +3,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/benhaube/glance-pages/blob/main/LICENSE">
-        <img alt="license badge" src="">
+        <img alt="license badge" src="https://img.shields.io/github/license/benhaube/glance-pages?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNGRjZCQ0IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1zY2FsZSBwcmV2aWV3LWljb24iPjxwYXRoIGQ9Ik0xMiAzdjE4Ii8%2BPHBhdGggZD0ibTE5IDggMyA4YTUgNSAwIDAgMS02IDB6VjciLz48cGF0aCBkPSJNMyA3aDFhMTcgMTcgMCAwIDAgOC0yIDE3IDE3IDAgMCAwIDggMmgxIi8%2BPHBhdGggZD0ibTUgOCAzIDhhNSA1IDAgMCAxLTYgMHpWNyIvPjxwYXRoIGQ9Ik03IDIxaDEwIi8%2BPC9zdmc%2B&label=License&color=%23FF6BCB">
     </a>
 </p>
 <h1 align="center">
