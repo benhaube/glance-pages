@@ -1,6 +1,11 @@
 <p align="center">
     <img src=".assets/logo.webp" alt="Glance logo" width="300" height="300">
 </p>
+<p align="center">
+    <a href="https://github.com/benhaube/glance-pages/blob/main/LICENSE">
+        <img alt="license badge" src="">
+    </a>
+</p>
 <h1 align="center">
     My Glance Dashboard Configuration
 </h1>
