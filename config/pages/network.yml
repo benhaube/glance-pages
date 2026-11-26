@@ -19,6 +19,7 @@
         - $include: /app/config/widgets/docker-containers_debian-vm.yml
         - $include: /app/config/widgets/docker-containers_pi-server.yml
         - $include: /app/config/widgets/docker-containers_zimaos-nas.yml
+        - $include: /app/config/widgets/beszel-container-monitor.yml
         - $include: /app/config/widgets/immich-stats.yml
         - $include: /app/config/widgets/technitium.yml
 

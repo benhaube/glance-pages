@@ -1,0 +1,4 @@
+- type: dynawidgets
+  widget: beszel-container-monitor
+  title: Docker Container Status
+  update-interval: 60s
